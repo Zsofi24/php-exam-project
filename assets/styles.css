@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100vh;
+}
+
+.nav-container {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-image: linear-gradient(to right, #422720, #4f4a4e, #303f44, #52778a, #26373d );
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav ul {
+    list-style-type: none;
+    display: flex;
+    align-content: center;
+}
+
+.nav ul li  {
+    font-size: 27px;
+    padding: 0 30px;
+}
+
+.nav ul li.username  {
+    font-size: 25px;
+    padding: 0 30px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.nav ul li.username a {
+    color: black;
+}
+
+.nav ul li.login-logout  {
+    font-size: 25px;
+}
+
+.nav ul li.regist  {
+    font-size: 25px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav ul li.regist a {
+    text-decoration: none;
+    color: #422720;
+}
+
+.nav ul li a i.fa-solid {
+    color: white;
+    font-size: 27px;
+    margin: 5px;
+}
+
+.picture {
+    height: 65vh;
+    background-image: url('../img/header2.jpg');
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.index-content {
+    width: 100%;
+    height: 570px;
+    background-color: #e8b393
+}
+
+/* jelentkezés */
+
+.form-jelentkezes {
+    margin: 30px 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.form-jelentkezes form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.form-jelentkezes form label {
+    padding: 6px 0;
+    font-size: 20px;
+}
+
+.form-jelentkezes form input {
+    height: 30px;
+}
+
+.form-jelentkezes form select {
+    height: 30px;
+}
+
+.form-jelentkezes form input#submit {
+    max-width: 60%;
+    margin: 10px 0 0 0;
+    font-size: 20px;
+}
+
+.form-jelentkezes form div.error {
+    color: red;
+}
+
+div.form-image {
+    background-image: url('../img/form.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 40%;
+}
+
+/*form regisztráció */
+
+.form-regist {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.form-regist form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+    row-gap: 15px;
+}
+
+.form-regist form h1{
+   text-align: center;
+}
+.form-regist form input {
+    height: 30px;
+    padding: 0 10px;
+}
+
+.form-regist form button {
+    padding: 10px;
+    background-color: #26373d;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.form-regist form button:hover {
+    background-color: #0c1b20;
+    color: rgb(183, 180, 180);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form-regist form input:hover {
+    border-color:rgb(74, 25, 25);
+    background-color: #dbc1b1;
+    font-weight: bold;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    height: 60vh;
+}
+
+.form-login form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0 auto;
+    row-gap: 15px;
+}
+
+.form-login form h1{
+   text-align: center;
+}
+.form-login form input {
+    height: 30px;
+    padding: 0 10px;
+}
+
+.form-login form button {
+    padding: 10px;
+    background-color: #26373d;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.form-login form button:hover {
+    background-color: #0c1b20;
+    color: rgb(183, 180, 180);
+    font-size: 20px;
+    cursor: pointer;
+
+}
+
+.form-login form input:hover {
+    border-color:rgb(74, 25, 25);
+    background-color: #dbc1b1;
+    font-weight: bold;
+}
+
+/* form - új túra hozzáadás*/
+
+.div-newTour {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+form.newTour {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+form.newTour label {
+    font-size: 23px;
+    color:white;
+    background-color: #2b677a;
+    margin: 10px 0;
+    padding: 5px;
+    font-weight: bold;
+}
+
+form.newTour input {
+    font-size: 16px;
+    background-color: #e9e9e9;
+    padding: 5px;
+    border: 2px solid rgb(53, 14, 14);
+}
+
+form.newTour select {
+    font-size: 16px;
+    background-color: #e9e9e9;
+    padding: 5px;
+}
+
+form.newTour textarea {
+    font-size: 16px;
+    background-color: #e9e9e9;
+    padding: 5px;
+    height: 130px;
+}
+
+form.newTour input[type=submit] {
+    font-size: 25px;
+    background-color: #2e0b0b;
+    color: rgb(170, 130, 130);
+    font-weight: bold;
+    padding: 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    
+}
+
+
+/* túrák */
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+section.tura {
+    border: 13px solid rgb(73, 16, 11);
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+
+}
+
+section.tura h1 {
+    margin: 12px 0;
+    text-align: center;
+    font-size: 25px;
+}
+
+section.tura p {
+    font-size: 18px;
+}
+
+
+section.tura a {
+    margin: 20px 0 0 0;
+    text-decoration: none;
+    background-color:#0c1b20;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+}
+
+section.tura .img img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* admin crud */
+
+table.crud-table {
+    width: 70%;
+}
+
+table.crud-table tr th {
+    border: 1px solid black;
+    font-size: 40px;
+    padding: 6px;
+}
+
+table.crud-table tr td {
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
+
+
+
+/* footer */
+
+footer {
+    background-color:#26373d  ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 30vh;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    background-color: #d7bcac;
+    font-size: 20px;
+    padding: 5px;
+}
+
+footer .admin-login a {
+    text-decoration: none;
+    color: rgb(146, 90, 90);
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #d7bcac;
+    padding: 6px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+
+
