@@ -1,5 +1,5 @@
 <?php
-require_once('<sql/DB.php');
+require_once('sql/DB.php');
 require_once('classes/crud.classes.php');
     if(isset($_POST["submit"])
              && isset($_FILES["kepFile"]) 
@@ -13,8 +13,6 @@ require_once('classes/crud.classes.php');
                     $insert = $crud->insertUjTura($_POST);
                     echo "siker";
                 }
-        
-
         }
     
 ?>

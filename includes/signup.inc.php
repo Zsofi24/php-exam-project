@@ -15,9 +15,10 @@ if(isset($_POST["submit"])) {
     $signup = new SignupContr($uid, $pwd, $pwdRepeat, $email);
 
     //Running error handlers and user signup
+    $errors = $signup->errors();
+    $signup = $signup->SignupUser();
 
-    $errors = $signup->signupUser();
 
     //going back to front page
-    //header('Location: ../index.php?error=none');
+    //header
 }

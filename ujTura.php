@@ -41,8 +41,6 @@ include_once 'templates/nav.php';
         </select>
         <label for="leiras">Leírás</label>
         <textarea  name="leiras" ></textarea>
-        <!-- <label for="kepNev" >Kép név</label>
-        <input type="text" name="kepNev">  -->
         <label for="kepFile">Kép kiválasztása</label>
         <input type="file" name="kepFile">
         <label for="kepCim">Kép cím (alt tag)</label>

@@ -5,8 +5,7 @@ session_start();
 require_once "./sql/DB.php";
 $db = new DB();
 if($db->getConnect()) {
-    $img = $db->selectImg();
-    $nev = $db->selectTuraNev();
+   
     $box = $db->selectBox();
    
     foreach ($box as $key => $value) {

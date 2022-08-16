@@ -14,8 +14,8 @@ class Crud extends DB
         $conn = $this->getConnect();
         $sql = "SELECT turak.id AS id, turak.nev as turanev, tura_kepek.kep_nev as kepnev, tura_kepek.kep_cim as kepcim, tura_leirasok.leiras as leiras
         FROM turak
-        LEFT JOIN tura_kepek ON turak.id = tura_kepek.id
-        LEFT JOIN tura_leirasok ON turak.id = tura_leirasok.id";
+        LEFT JOIN tura_kepek ON turak.tura_kepek_id = tura_kepek.id
+        LEFT JOIN tura_leirasok ON turak.tura_leirasok_id = tura_leirasok.id";
         $stmt = $this->prepare($sql, "", []);
         $stmt->execute();
         if ($stmt->error !== "") {
