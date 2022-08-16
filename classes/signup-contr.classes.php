@@ -20,7 +20,7 @@ class SignupContr extends Signup
     {
         if($this->emptyInput() == false) {
             //echo "Empty input"
-            $this->addError('username', 'felhasználónév nem lehet üres');
+            $this->addError('empty', 'Kérem, töltsön ki minden mezőt!');
             //header("Location: ../index.php?error=emptyinput");
             //exit();
             //return $this->errors;
@@ -64,7 +64,8 @@ class SignupContr extends Signup
 
         return $this->errors;
     }
-    public function SignupUser() {
+
+    public function signupUser() {
         if(empty($this->errors)) {
             $this->setUser($this->uid, $this->pwd, $this->email);
 

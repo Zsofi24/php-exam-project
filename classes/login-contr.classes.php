@@ -5,21 +5,27 @@ class LoginContr extends Login
     private $uid;
     private $pwd;
 
+
     public function __construct($uid, $pwd)
     {
         $this->uid = $uid;
         $this->pwd = $pwd;
     }
 
-    public function loginUser()
+    public function errors()
     {
         if($this->emptyInput() == false) {
-            //echo "Empty input"
-            header('Location: ../index.php?error=emptyinput');
-            exit();
-        }
+            
+            $this->addError('empty', 'Kérem, töltsön ki minden mezőt!');
 
-        $this->getUser($this->uid, $this->pwd);
+            return $this->errors;
+        } else {
+            $this->getUser($this->uid, $this->pwd);
+            if(!empty($this->errors)) {
+
+                return $this->errors;
+            }       
+        }
     }
 
     private function emptyInput()
@@ -31,7 +37,4 @@ class LoginContr extends Login
         }
         return $result;
     }
-
-    
-
 }

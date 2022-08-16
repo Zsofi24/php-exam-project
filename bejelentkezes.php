@@ -1,9 +1,11 @@
 <?php
+include_once 'includes/login.inc.php';
 include_once 'templates/nav.php';
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +15,15 @@ include_once 'templates/nav.php';
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+    <?php
+    if(!empty($errors)):
+        foreach ($errors as $value):
+            ?> <p><?php echo $value ?></p>
+    <?php endforeach;
+    endif;
+    ?>
     <div class="form-login">
-        <form action="includes/login.inc.php" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <h1>Bejelentkezés</h1>
             <input type="text" name="uid" placeholder="felhasználónév">
             <input type="password" name="pwd" placeholder="jelszó">
