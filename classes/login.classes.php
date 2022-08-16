@@ -11,12 +11,12 @@ class Login extends Dbh
 
         if(!$stmt->execute(array($uid, $pwd))) {
             $stmt = null;
-            $this->addError('db', 'adatbázis hiba!');
+            $this->addError('db', '*adatbázis hiba!');
         }
 
         if($stmt->rowCount() == 0) {
             $stmt = null;
-            $this->addError('notfound', 'jelszó vagy felhasználónév hiba!');
+            $this->addError('wrong', '*nem megfelelő jelszó vagy felhasználónév');
             return $this->errors;
         } else {
             $pwdHashed = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -25,7 +25,7 @@ class Login extends Dbh
 
             if($checkPwd == false) {
                 $stmt = null;
-                $this->addError('wrong', 'nem megfelelő jelszó vagy felhasználónév');
+                $this->addError('wrong', '*nem megfelelő jelszó vagy felhasználónév');
                 return $this->errors;
 
             } elseif ($checkPwd == true) {
@@ -33,13 +33,13 @@ class Login extends Dbh
 
                 if(!$stmt->execute(array($uid, $uid, $pwd))) {
                     $stmt = null;
-                    $this->addError('db', 'adatbázis hiba');
+                    $this->addError('db', '*adatbázis hiba');
                     return $this->errors;
                 }
 
                 if($stmt->rowCount() == 0) {
                     $stmt = null;
-                    $this->addError('wrong', 'nem megfelelő jelszó vagy felhasználónév');
+                    $this->addError('wrong', '*nem megfelelő jelszó vagy felhasználónév');
                     return $this->errors;
                 }
             }           

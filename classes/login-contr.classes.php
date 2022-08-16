@@ -16,7 +16,7 @@ class LoginContr extends Login
     {
         if($this->emptyInput() == false) {
             
-            $this->addError('empty', 'Kérem, töltsön ki minden mezőt!');
+            $this->addError('empty', '*kérem, töltsön ki minden mezőt!');
 
             return $this->errors;
         } else {

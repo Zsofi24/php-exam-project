@@ -1,5 +1,7 @@
 <?php
 
+$status = "";
+
 if(isset($_POST["submit"])) {
 
     $uid = $_POST["uid"];
@@ -11,5 +13,11 @@ if(isset($_POST["submit"])) {
     $login = new LoginContr($uid, $pwd);
 
     $errors = $login->errors();
+    
+    if(empty($errors)) {
+        $status = 'success';
+    } else {
+        $status = 'loginerror';
+    }
     
 }

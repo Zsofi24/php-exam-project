@@ -21,8 +21,8 @@
             else
             {
         ?>
-            <li  class="regist"><a href="regisztracio.php">Regisztráció</a></li>
-            <li  class="login-logout"><a href="bejelentkezes.php">Bejelentkezés</a></li>
+            <li  class="regist"><a href="signup.php">Regisztráció</a></li>
+            <li  class="login-logout"><a href="login.php">Bejelentkezés</a></li>
         <?php 
             }
         ?>

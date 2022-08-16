@@ -17,10 +17,10 @@ if(isset($_POST["submit"])) {
     $errors = $signup->errors();
     
     if(empty($errors)) {
-        $signup = $signup->signupUser();
-        $status = 'success';
-      } else {
-        $status = 'signuperror';
-      }
+      $signup = $signup->signupUser();
+      $status = 'success';
+    } else {
+      $status = 'signuperror';
+    }
 
 }
