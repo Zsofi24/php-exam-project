@@ -14,21 +14,35 @@ include_once 'includes/signup.inc.php';
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <?php
-    if(!empty($errors)):
-        foreach ($errors as $value):
-            ?> <p><?php echo $value ?></p>
-    <?php endforeach;
-    endif;
-    ?>
 
     <div class="form-regist">
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <h1>Regisztráció</h1>
-            <input type="text" name="uid" placeholder="felhasználónév">
+            <label for="uid">Felhasználónév</label>
+            <input type="text" name="uid" placeholder="felhasználónév" value="<?= $_POST['uid'] ?? ''?>">
+            <div class="error">
+                <p><?php echo $errors['uid'] ?? '' ?></p>
+                <p><?php echo $errors['taken'] ?? '' ?></p>
+            </div>
+
+            <label for="email">E-mail cím</label>
+            <input type="email" name="email" placeholder="e-mail cím" value="<?= $_POST['email'] ?? ''?>">
+            <div class="error">
+                <p><?php echo $errors['email'] ?? '' ?></p>
+                <p><?php echo $errors['taken'] ?? '' ?></p>
+            </div>
+
+            <label for="pwd">Jelszó</label>
             <input type="password" name="pwd" placeholder="jelszó">
+            <div class="error">
+                <p><?php echo $errors['pwdmatch'] ?? '' ?></p>
+            </div>
+
+            <label for="pwdrepeat">Ismételt jelszó</label>
             <input type="password" name="pwdrepeat" placeholder="ismételt jelszó">
-            <input type="email" name="email" placeholder="email">
+            <div class="error">
+                <p><?php echo $errors['pwdmatch'] ?? '' ?></p>
+            </div>
             <button type="submit" name="submit">regisztráció</button>
         </form>
     </div>

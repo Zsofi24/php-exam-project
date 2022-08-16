@@ -19,47 +19,23 @@ class SignupContr extends Signup
     public function errors()
     {
         if($this->emptyInput() == false) {
-            //echo "Empty input"
-            $this->addError('empty', 'Kérem, töltsön ki minden mezőt!');
-            //header("Location: ../index.php?error=emptyinput");
-            //exit();
-            //return $this->errors;
+            $this->addError('empty', '*kérem, töltsön ki minden mezőt!');
+        } else {
+            if($this->invalidUid() == false) {
+                $this->addError('uid', '*a felhasználónév csak betűket és számokat tartalmazhat');
+            }
 
-        }
-        if($this->invalidUid() == false) {
-            //echo "invalid username"
-            $this->addError('username', 'nem megfelelő felhasználónév');
-            //header("Location: ../index.php?error=username");
-            //exit();
-            //return $this->errors;
+            if($this->invalidEmail() == false) {
+                $this->addError('email', '*helytelen e-mail cím');
+            }
 
-        }
-        if($this->invalidEmail() == false) {
-            //echo "invalid email"
-            $this->addError('email', 'nem megfelelő email');
+            if($this->pwdMatch() == false) {
+                $this->addError('pwdmatch', '*nem egyező jelszó');
+            }
 
-            //header("Location: ../index.php?error=email");
-            //exit();
-            //return $this->errors;
-
-        }
-        if($this->pwdMatch() == false) {
-            //echo "Passwords don't match!"
-            $this->addError('pwdmatch', 'jelszó nem egyezik');
-
-            // header("Location: ../index.php?error=passwordmatch");
-            // exit();
-            //return $this->errors;
-
-        }
-        if($this->uidTakenCheck() == false) {
-            //echo "Username or email taken"
-            $this->addError('taken', 'létező email vagy felhasználónév');
-
-            // header("Location: ../index.php?error=useroremailtaken");
-            // exit();
-            //return $this->errors;
-
+            if($this->uidTakenCheck() == false) {
+                $this->addError('taken', '*létező e-mail cím vagy felhasználónév');
+            }
         }
 
         return $this->errors;
@@ -68,7 +44,6 @@ class SignupContr extends Signup
     public function signupUser() {
         if(empty($this->errors)) {
             $this->setUser($this->uid, $this->pwd, $this->email);
-
         }
     }
 
