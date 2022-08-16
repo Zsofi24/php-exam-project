@@ -1,5 +1,7 @@
 <?php
 
+$status = "";
+
 if(isset($_POST["submit"])) {
 
     $uid = $_POST["uid"];
@@ -13,6 +15,12 @@ if(isset($_POST["submit"])) {
     $signup = new SignupContr($uid, $pwd, $pwdRepeat, $email);
 
     $errors = $signup->errors();
-    $signup = $signup->signupUser();
+    
+    if(empty($errors)) {
+        $signup = $signup->signupUser();
+        $status = 'success';
+      } else {
+        $status = 'signuperror';
+      }
 
 }

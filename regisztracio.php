@@ -14,6 +14,13 @@ include_once 'includes/signup.inc.php';
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+            
+    <?php if($status === 'success'): ?>
+        <h1>Sikeres regisztráció</h1> 
+    <?php elseif($status === 'signuperror'): ?>
+        <h1>Sikertelen regisztráció</h1>
+        <p><?php echo $errors['empty'] ?? '' ?></p>
+    <?php endif ?>
 
     <div class="form-regist">
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
