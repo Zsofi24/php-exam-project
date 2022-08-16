@@ -1,20 +1,9 @@
 <?php
 session_start();
 ?>
+
 <?php
-require_once "./sql/DB.php";
-$db = new DB();
-if($db->getConnect()) {
-   
-    $box = $db->selectBox();
-   
-    foreach ($box as $key => $value) {
-        $leiras[] = $db->cut($value['leiras'], 200);
-    } 
-   
-} else {
-    echo "no";
-}
+require_once 'includes/turak.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -30,16 +19,12 @@ if($db->getConnect()) {
 <body>
 
 <?php
-
 include_once 'templates/nav.php';
-
 ?>
+
 <div class="box">
 
-    <?php foreach ($box as $key => $value) {
-    
-    
-    ?>
+    <?php foreach ($box as $key => $value): ?>
         <section class="tura">
             <div class="img">
                 <img src="img/<?php echo $value['kepNev'];?>" alt="<?php echo $value['kepCim'];?>">
@@ -49,13 +34,11 @@ include_once 'templates/nav.php';
             <a href="turainfo.php?id=<?php echo $value['turaId']?>">Leírás</a>
         </section>
     <?php
-    }
+    endforeach
     ?>
-
 
 </div>
 
 <?php
 include_once 'templates/footer.php';
 ?>
-

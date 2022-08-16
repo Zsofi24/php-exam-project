@@ -338,6 +338,11 @@ section.tura .img img{
     border-radius: 20px;
 }
 
+/* túra info */
+
+.img-turainfo img {
+    width: 30%;
+}
 /* admin crud */
 
 table.crud-table {
