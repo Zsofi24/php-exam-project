@@ -1,4 +1,5 @@
 <?php
+include_once 'includes/adminlogin.inc.php';
 include_once 'templates/nav.php';
 ?>
 
@@ -13,10 +14,19 @@ include_once 'templates/nav.php';
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
+
+    <?php if($status === 'success'): ?>
+        <h1>Sikeres bejelentkezés</h1> 
+    <?php elseif($status === 'loginerror'): ?>
+        <h1>Sikertelen bejelentkezés</h1>
+        <p><?php echo $errors['empty'] ?? '' ?></p>
+        <?php echo $errors['wrong'] ?? '' ?>
+    <?php endif ?> 
+
     <div class="form-login">
-        <form action="includes/adminlogin.inc.php" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <h1>Admin bejelentkezés</h1>
-            <input type="text" name="uid" placeholder="felhasználónév">
+            <input type="text" name="uid" placeholder="felhasználónév" value="<?= $_POST['uid'] ?? ''?>">
             <input type="password" name="pwd" placeholder="jelszó">
             <button type="submit" name="adminsubmit">Bejelentkezés</button>
         </form>

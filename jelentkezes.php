@@ -23,9 +23,10 @@ require_once('includes/jelentkezes.inc.php');
 ?>
 
 <?php if($status==="success"): ?>
-  <h1>Sikeres</h1> 
+  <h1>Sikeres jelenkezés</h1> 
 <?php elseif($status === "validationerror"): ?>
-  <h1>Sikertelen</h1>
+  <h1>Sikertelen jelentkezés</h1>
+  <p>*Kérem, helyes adatokat adjon meg!</p>
 <?php endif ?>
 
 

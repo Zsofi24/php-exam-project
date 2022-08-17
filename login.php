@@ -1,5 +1,5 @@
 <?php
-include_once 'includes/login.inc.php';
+include_once 'includes/adminlogin.inc.php';
 include_once 'templates/nav.php';
 ?>
 
