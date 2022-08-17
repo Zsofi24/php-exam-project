@@ -32,7 +32,8 @@ include_once 'templates/nav.php';
     </div>
     <h1><?php echo $nev; ?></h1>
     <div class="cimke">
-        cimkék
+        
+        <div>cimke1</div><div>cimke2</div>
     </div>
     <div class="cont">
         <article>
@@ -42,7 +43,7 @@ include_once 'templates/nav.php';
             <p>Szint: </p>
             <p>Típus: </p>
 
-            <p>Helyszín: </p>
+            <p>Helyszín: <?php echo $lokacio ?> </p>
 
             <p>Teljesítési idő:... óra</p>
             <p>Túra hossz: ... km </p>

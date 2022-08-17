@@ -7,4 +7,5 @@ $db = new TuraInfo();
 if($db->getConnect()) {
     $nev = $db->selectNev($_GET['id']);
     $kep = $db->selectKep($_GET['id']);
+    $lokacio = $db->selectLokacio($_GET['id']);
 }

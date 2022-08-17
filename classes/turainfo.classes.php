@@ -40,5 +40,30 @@ class TuraInfo extends DB
         }
     }
 
+    
+
+    public function selectLokacio($id) 
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_helyszinek.lokacio FROM turak
+        LEFT JOIN tura_helyszinek ON turak.tura_helyszinek_id = tura_helyszinek.id
+        WHERE turak.id = $id";
+        $stmt = $this->prepareOne($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($lokacio);
+            while ($stmt->fetch()) {
+                $result= $lokacio;
+            }
+            return $result;
+        }
+    }
+
+
+
+    
+
 
 }

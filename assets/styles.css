@@ -343,6 +343,13 @@ section.tura .img img{
 .img-turainfo img {
     width: 30%;
 }
+
+.container-turainfo .cimke {
+    display: flex;
+}
+
+
+
 /* admin crud */
 
 table.crud-table {
