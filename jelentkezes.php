@@ -16,8 +16,9 @@ session_start();
 <?php
 
 require_once ('templates/nav.php');
-require_once('classes/jelentkezes.classes.php');
 require_once('sql/DB.php');
+require_once('classes/jelentkezes.classes.php');
+require_once('classes/jelentkezessql.classes.php');
 require_once('includes/jelentkezes.inc.php');
 
 ?>
@@ -54,10 +55,9 @@ require_once('includes/jelentkezes.inc.php');
       </div>
     <label for="tura">Túra</label>
     <select id="tura" name="tura">
-        <option value="#">1</option>
-        <option value="#">2</option>
-        <option value="#">3</option>
-        <option value="#">4</option>
+        <?php foreach ($nev as $value): ?>
+          <option value="<?php echo $value ?>"><?php echo $value ?></option>
+        <?php endforeach ?>
     </select>
     <label for="idopont">Időpont</label>
     <select id="idopont" name="idopont">

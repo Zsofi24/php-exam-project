@@ -1,4 +1,8 @@
 <?php
+
+$sql = new JelentkezesSql();
+$nev = $sql->selectNev();
+
 $errors = [];
 $status = "";
 
@@ -15,4 +19,5 @@ $status = "";
     } else {
       $status = 'validationerror';
     }
+    
   }
