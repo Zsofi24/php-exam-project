@@ -11,22 +11,22 @@ class DB {
         } 
     }
 
-    public function selectImg()
-    {
-        $conn = $this->getConnect();
-        $sql = "SELECT kep_nev FROM tura_kepek";
-        $stmt = $this->prepare($sql, "", []);
-        $stmt->execute();
-        if ($stmt->error !== "") {
-            return $stmt->error;
-        } else {
-            $stmt->bind_result($name);
-            while ($stmt->fetch()) {
-                $img[] = $name;
-            }
-            return $img;
-        }
-    }
+    // public function selectImg()
+    // {
+    //     $conn = $this->getConnect();
+    //     $sql = "SELECT kep_nev FROM tura_kepek";
+    //     $stmt = $this->prepare($sql, "", []);
+    //     $stmt->execute();
+    //     if ($stmt->error !== "") {
+    //         return $stmt->error;
+    //     } else {
+    //         $stmt->bind_result($name);
+    //         while ($stmt->fetch()) {
+    //             $img[] = $name;
+    //         }
+    //         return $img;
+    //     }
+    // }
 
     public function insertJelentkezes($postArray)
     {
@@ -43,22 +43,22 @@ class DB {
         $this->close();
     }
 
-    public function selectTuraNev()
-    {
-        $conn = $this->getConnect();
-        $sql = "SELECT nev FROM turak";
-        $stmt = $this->prepare($sql, "", []);
-        $stmt->execute();
-        if ($stmt->error !== "") {
-            return $stmt->error;
-        } else {
-            $stmt->bind_result($name);
-            while ($stmt->fetch()) {
-                $nev[] = $name;
-            }
-            return $nev;
-        }
-    }
+    // public function selectTuraNev()
+    // {
+    //     $conn = $this->getConnect();
+    //     $sql = "SELECT nev FROM turak";
+    //     $stmt = $this->prepare($sql, "", []);
+    //     $stmt->execute();
+    //     if ($stmt->error !== "") {
+    //         return $stmt->error;
+    //     } else {
+    //         $stmt->bind_result($name);
+    //         while ($stmt->fetch()) {
+    //             $nev[] = $name;
+    //         }
+    //         return $nev;
+    //     }
+    // }
 
     public function selectBox()
     {
@@ -85,14 +85,17 @@ class DB {
     public function cut($string, $num) 
     {
         $cutted_string = mb_substr($string, 0, $num);
-     $last_character = mb_substr($cutted_string, -1);
-     if (($last_character !== "!") && ($last_character !== "." ) && ($last_character !=="?")) {
-        do {
-            $num++;
-            $cutted_string = (mb_substr($string, 0, $num));
-            $last_character = mb_substr($cutted_string, -1);
-        } while (($last_character !== ".") && ($last_character !== "!") && ($last_character !== "?"));               
-    }         
+        $last_character = mb_substr($cutted_string, -1);
+
+        if(strlen($cutted_string) > $num) {
+            if (($last_character !== "!") && ($last_character !== "." ) && ($last_character !=="?")) {
+                do {
+                    $num++;
+                    $cutted_string = (mb_substr($string, 0, $num));
+                    $last_character = mb_substr($cutted_string, -1);
+                } while (($last_character !== ".") && ($last_character !== "!") && ($last_character !== "?"));               
+            }      
+        }    
      
         return $cutted_string;
     }

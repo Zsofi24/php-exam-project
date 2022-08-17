@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="https://kit.fontawesome.com/bee62954a8.js" crossorigin="anonymous"></script>
-
     <script src="https://cdn.ckeditor.com/ckeditor5/35.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
@@ -23,15 +22,16 @@
                                 } );
                 </script> -->
 <?php
+
 require_once('templates/nav.php');
 require_once('sql/DB.php');
-
 require_once('classes/crud.classes.php');
 $crud = new Crud();
 $header = $crud->getHeader();
 $tableData = $crud->selectCrudData();
 
-?>    
+?> 
+   
 <div class="addButton">
         <button><a href="ujTura.php">Új hozzáadása</a>
         </button>

@@ -57,7 +57,7 @@ class Crud extends DB
         $types4 = "ii";
         foreach ($postArray["cimke"] as $value) {
             $params4 = [$value, $id1];
-            $insert4 = "INSERT INTO cimkek_has_tura_leirasok (cimkek_id, tura_leirasok_id) VALUES (?, ?)";
+            $insert4 = "INSERT INTO cimke_has_leiras (cimkek_id, tura_leirasok_id) VALUES (?, ?)";
             $statement4 = $this->prepare($insert4, $types4, $params4);
             $statement4->execute();
         }
