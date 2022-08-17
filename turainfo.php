@@ -32,8 +32,13 @@ include_once 'templates/nav.php';
     </div>
     <h1><?php echo $nev; ?></h1>
     <div class="cimke">
-        
-        <div>cimke1</div><div>cimke2</div>
+        <?php
+        foreach ($cimke as $value) {
+            ?>
+            <div><?php echo $value; ?></div>
+            <?php
+        }
+        ?>
     </div>
     <div class="cont">
         <article>

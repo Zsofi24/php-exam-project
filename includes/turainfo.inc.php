@@ -8,4 +8,6 @@ if($db->getConnect()) {
     $nev = $db->selectNev($_GET['id']);
     $kep = $db->selectKep($_GET['id']);
     $lokacio = $db->selectLokacio($_GET['id']);
+    $cimke = $db->selectCimke($_GET['id']);
+
 }

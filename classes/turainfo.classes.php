@@ -40,7 +40,26 @@ class TuraInfo extends DB
         }
     }
 
-    
+    public function selectCimke($id) 
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_cimkek.cimke_nev
+        FROM turak
+        left JOIN cimke_has_leiras ON turak.tura_leirasok_id = cimke_has_leiras.tura_leirasok_id
+        LEFT JOIN tura_cimkek ON cimke_has_leiras.cimkek_id = tura_cimkek.id
+        WHERE turak.id = $id";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($cimkek);
+            while ($stmt->fetch()) {
+                $result[]= $cimkek;
+            }
+            return $result;
+        }
+    }
 
     public function selectLokacio($id) 
     {
