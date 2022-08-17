@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +15,7 @@ session_start();
 <body>
 
 <?php
-
-require_once ('templates/nav.php');
-require_once('sql/DB.php');
-require_once('classes/jelentkezes.classes.php');
-require_once('classes/jelentkezessql.classes.php');
 require_once('includes/jelentkezes.inc.php');
-
 ?>
 
 <?php if($status==="success"): ?>
@@ -29,7 +24,6 @@ require_once('includes/jelentkezes.inc.php');
   <h1>Sikertelen jelentkezés</h1>
   <p>*Kérem, helyes adatokat adjon meg!</p>
 <?php endif ?>
-
 
 <div class="form-jelentkezes">
 <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
@@ -73,8 +67,10 @@ require_once('includes/jelentkezes.inc.php');
       </div>
     <input type="submit" value="jelentkezes" id="submit" name="submit">
 </form>
-    <div class="form-image">
-    </div>
+
+<div class="form-image">
+</div>
+
 </div>
 
 <?php

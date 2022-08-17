@@ -3,8 +3,6 @@ session_start();
 ?>
 
 <?php
-require_once 'sql/DB.php';
-
 require_once 'includes/turainfo.inc.php';
 ?>
 
@@ -24,21 +22,15 @@ require_once 'includes/turainfo.inc.php';
 include_once 'templates/nav.php';
 ?>
 
-
-
 <div class="container-turainfo">
     <div class="img-turainfo">
     <img src="img/<?php echo $kep[0]?>" alt="<?php echo $kep[1]?>">
     </div>
     <h1><?php echo $nev; ?></h1>
     <div class="cimke">
-        <?php
-        foreach ($cimke as $value) {
-            ?>
+        <?php foreach ($cimke as $value): ?>
             <div><?php echo $value; ?></div>
-            <?php
-        }
-        ?>
+        <?php endforeach ?>
     </div>
     <div class="cont">
         <article>
@@ -47,16 +39,9 @@ include_once 'templates/nav.php';
         <div class="adatok">
             <p>Szint: <?php echo $szinttipus['szint']?></p>
             <p>Típus: <?php echo $szinttipus['tipus']?> </p>
-
             <p>Helyszín: <?php echo $lokacio ?> </p>
-
             <p>Teljesítési idő: <?php echo $idohossz['ido']?> óra</p>
             <p>Túra hossz: <?php echo $idohossz['hossz']?> km </p>
-
-
         </div>
     </div>
 </div>
-
-
-
