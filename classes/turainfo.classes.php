@@ -20,6 +20,26 @@ class TuraInfo extends DB
         }
     }
 
+    public function selectLeiras($id) 
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_leirasok.leiras
+        FROM turak
+        LEFT JOIN tura_leirasok ON turak.tura_leirasok_id = tura_leirasok.id
+        WHERE turak.id = $id";
+        $stmt = $this->prepareOne($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($leiras);
+            while ($stmt->fetch()) {
+                $result= $leiras;
+            }
+            return $result;
+        }
+    }
+
     public function selectKep($id) 
     {
         $conn = $this->getConnect();
@@ -79,6 +99,48 @@ class TuraInfo extends DB
             return $result;
         }
     }
+
+    public function selectIdoHossz($id)
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT turak.teljesitesi_ido, turak.tura_hossz
+        FROM turak
+        WHERE turak.id = $id";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($ido, $hossz);
+            while ($stmt->fetch()) {
+                $result= ['ido'=>$ido, 'hossz'=>$hossz];
+            }
+            return $result;
+        }
+    }
+
+    public function selectSzintTipus($id)
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_szintek.tura_szintek, tura_tipusok.tura_tipus
+        FROM turak
+        left JOIN tura_szintek ON turak.tura_szintek_id = tura_szintek.id
+        LEFT JOIN tura_tipusok ON turak.tura_tipusok_id = tura_tipusok.id
+        WHERE turak.id = $id";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($szint, $tipus);
+            while ($stmt->fetch()) {
+                $result= ['szint'=>$szint, 'tipus'=>$tipus];
+            }
+            return $result;
+        }
+    }
+
+
 
 
 

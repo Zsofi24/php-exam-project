@@ -42,16 +42,16 @@ include_once 'templates/nav.php';
     </div>
     <div class="cont">
         <article>
-            leírás
+           <p><?php echo $leiras ?></p>
         </article>
         <div class="adatok">
-            <p>Szint: </p>
-            <p>Típus: </p>
+            <p>Szint: <?php echo $szinttipus['szint']?></p>
+            <p>Típus: <?php echo $szinttipus['tipus']?> </p>
 
             <p>Helyszín: <?php echo $lokacio ?> </p>
 
-            <p>Teljesítési idő:... óra</p>
-            <p>Túra hossz: ... km </p>
+            <p>Teljesítési idő: <?php echo $idohossz['ido']?> óra</p>
+            <p>Túra hossz: <?php echo $idohossz['hossz']?> km </p>
 
 
         </div>
