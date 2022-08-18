@@ -71,7 +71,9 @@ $lokacio = $crud->selectLokaciok();
         </select>
 
         <label for="cimke">Cimkék</label>
-        <select name="cimke[]" multiple size="6">
+        <input type="checkbox" name="cimkek" value="<?php ?>">
+        <label for="cimkek"><?php ?></label>
+        <!-- <select name="cimke[]" multiple size="6">
             <option value="1" name="1">Szép kilátás</option>
             <option value="2" name="2">Kerékpártúra</option>
             <option value="3" name="3">Család- és gyerekbarát</option>
@@ -83,7 +85,7 @@ $lokacio = $crud->selectLokaciok();
             <option value="9" name="9">Kilátó</option>
             <option value="10" name="10">Kirándulások 15km alatt</option>
             <option value="11" name="11">Gyalogtúra</option>
-        </select>
+        </select> -->
 
         <label for="teljesitesIdo">Teljesítési idő (óra)</label>
         <input type="number" name="teljesitesIdo" min="1" max="50" value ="<?php echo $crudData['ido']?>">

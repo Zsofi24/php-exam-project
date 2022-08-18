@@ -1,12 +1,6 @@
-<!-- <?php
-// require_once('<sql/DB.php');
-// require_once('classes/crud.classes.php');
-//     if(isset($_POST["submit"])) {
-//         //echo (var_dump($_POST));
-//          $crud = new Crud();
-//          $insert = $crud->insertUjTura($_POST);
-//     }
-?> -->
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="hu">
@@ -19,59 +13,60 @@
     <script src="https://kit.fontawesome.com/bee62954a8.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <?php
 include_once 'templates/nav.php';
+require_once 'includes/ujTura.inc.php';
 ?>
+
 <a href="admin.php">Vissza</a>
 <div class="div-newTour">
     <form method="post" action="hozzaad.php" enctype="multipart/form-data" class="newTour">
         <label for="turaNev">Túra neve</label>
         <input type="text" name="turaNev">
+
         <label for="turaTipus">Túra típusa</label>
         <select name="turaTipus">
-            <option value="1">vízitúra</option>
-            <option value="2">gyalogos</option>
-            <option value="3">kerékpár</option>
+            <?php foreach ($tipus as $key) : ?>
+                <option value="<?php echo $key['id'] ?>"><?php echo $key['tipus'] ?></option>
+            <?php endforeach ?>
         </select>
+
         <label for="turaSzint">Túra szint</label>
         <select name="turaSzint">
-            <option value="1" name="1">könnyű</option>
-            <option value="2" name="2">közepes</option>
-            <option value="3" name="3">nehéz</option>
+        <?php foreach ($szint as $key) : ?>
+                <option value="<?php echo $key['id'] ?>"><?php echo $key['szint'] ?></option>
+            <?php endforeach ?>
         </select>
+
         <label for="leiras">Leírás</label>
         <textarea  name="leiras" ></textarea>
+
         <label for="kepFile">Kép kiválasztása</label>
         <input type="file" name="kepFile">
+
         <label for="kepCim">Kép cím (alt tag)</label>
         <input type="text" name="kepCim">
+
         <label for="lokacio">Lokáció</label>
         <select name="lokacio">
-            <option value="1" name="1">Balaton-felvidék</option>
-            <option value="2" name="2">Balaton</option>
-            <option value="3" name="3">Kis-Balaton</option>
-            <option value="4" name="4">Mecsek-Villány-Zselic</option>
-            <option value="5" name="5">Mezőföld és Dunamente</option>
+        <?php foreach ($lokacio as $key) : ?>
+                <option value="<?php echo $key['id'] ?>"><?php echo $key['lokacio'] ?></option>
+            <?php endforeach ?>
         </select>
+
         <label for="cimke">Cimkék</label>
-        <select name="cimke[]" multiple size="6">
-            <option value="1" name="1">Szép kilátás</option>
-            <option value="2" name="2">Kerékpártúra</option>
-            <option value="3" name="3">Család- és gyerekbarát</option>
-            <option value="4" name="4">Különleges élővilág</option>
-            <option value="5" name="5">Kirándulások 10km alatt</option>
-            <option value="6" name="6">Vízitúra</option>
-            <option value="7" name="7">Kultúrális/történelmi értékek</option>
-            <option value="8" name="8">Körtúra</option>
-            <option value="9" name="9">Kilátó</option>
-            <option value="10" name="10">Kirándulások 15km alatt</option>
-            <option value="11" name="11">Gyalogtúra</option>
-        </select>
+        <?php foreach ($cimke as $key) : ?>
+            <label class="label checkbox" for="cimke[]" ><?php echo $key['cimke']?> 
+                <input type="checkbox" name="cimke[]" value="<?php echo $key['id'] ?>">
+            </label>
+        <?php endforeach ?>
+        
         <label for="teljesitesIdo">Teljesítési idő (óra)</label>
         <input type="number" name="teljesitesIdo" min="1" max="50">
+
         <label for="turaHossz">Túra hossz (km)</label>
         <input type="number" name="turaHossz" min="1" max="100">
-
         
         <input type="submit" value="hozzáad" name="submit">
     </form>

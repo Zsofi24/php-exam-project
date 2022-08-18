@@ -268,6 +268,13 @@ form.newTour input {
     border: 2px solid rgb(53, 14, 14);
 }
 
+form.newTour .label {
+    font-size: 20px;
+    background-color: #e9e9e9;
+    color: black;
+    margin: 0;
+}
+
 form.newTour select {
     font-size: 16px;
     background-color: #e9e9e9;
