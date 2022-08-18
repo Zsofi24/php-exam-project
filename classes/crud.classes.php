@@ -72,11 +72,12 @@ class Crud extends DB
         return $cutted_string;
     }
 
-    public function selectEditData1($id) 
+    public function selectEditData($id) 
     {
         $conn = $this->getConnect();
         $sql = "SELECT turak.id, turak.nev, tura_kepek.kep_nev, tura_kepek.kep_cim, tura_leirasok.leiras,
-        turak.teljesitesi_ido, turak.tura_hossz, tura_tipusok.tura_tipus, tura_szintek.tura_szintek, tura_helyszinek.lokacio       
+        turak.teljesitesi_ido, turak.tura_hossz, tura_tipusok.tura_tipus, tura_szintek.tura_szintek, 
+        tura_helyszinek.lokacio       
         FROM turak
         LEFT JOIN tura_kepek ON turak.tura_kepek_id = tura_kepek.id
         LEFT JOIN tura_leirasok ON turak.tura_leirasok_id = tura_leirasok.id
@@ -143,6 +144,44 @@ class Crud extends DB
             $stmt->bind_result($lokacio);
             while ($stmt->fetch()) {
                 $result[] = $lokacio;
+            }
+            return $result;
+        }
+    }
+
+    public function selectCimkek()
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT id, cimke_nev FROM tura_cimkek";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($id, $cimke);
+            while ($stmt->fetch()) {
+                $result[] = ['id'=> $id, 'cimke' => $cimke];
+            }
+            return $result;
+        }
+    }
+
+    public function selectCimkeID($id) 
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_cimkek.cimke_nev
+        FROM turak
+        left JOIN cimke_has_leiras ON turak.tura_leirasok_id = cimke_has_leiras.tura_leirasok_id
+        LEFT JOIN tura_cimkek ON cimke_has_leiras.cimkek_id = tura_cimkek.id
+        WHERE turak.id = $id";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($cimkek);
+            while ($stmt->fetch()) {
+                $result[]= $cimkek;
             }
             return $result;
         }

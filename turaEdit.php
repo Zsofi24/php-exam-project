@@ -7,10 +7,13 @@ require_once('templates/nav.php');
 require_once('sql/DB.php');
 require_once('classes/crud.classes.php');
 $crud = new Crud();
-$crudData = $crud->selectEditData1($_GET['id']);
+$crudData = $crud->selectEditData($_GET['id']);
 $tipusok = $crud->selectTipusok();
 $szintek = $crud->selectSzintek();
 $lokacio = $crud->selectLokaciok();
+$cimke = $crud->selectCimkek();
+$cimkeID = $crud->selectCimkeID($_GET['id']);
+
 
 ?>
 
@@ -71,21 +74,14 @@ $lokacio = $crud->selectLokaciok();
         </select>
 
         <label for="cimke">Cimkék</label>
-        <input type="checkbox" name="cimkek" value="<?php ?>">
-        <label for="cimkek"><?php ?></label>
-        <!-- <select name="cimke[]" multiple size="6">
-            <option value="1" name="1">Szép kilátás</option>
-            <option value="2" name="2">Kerékpártúra</option>
-            <option value="3" name="3">Család- és gyerekbarát</option>
-            <option value="4" name="4">Különleges élővilág</option>
-            <option value="5" name="5">Kirándulások 10km alatt</option>
-            <option value="6" name="6">Vízitúra</option>
-            <option value="7" name="7">Kultúrális/történelmi értékek</option>
-            <option value="8" name="8">Körtúra</option>
-            <option value="9" name="9">Kilátó</option>
-            <option value="10" name="10">Kirándulások 15km alatt</option>
-            <option value="11" name="11">Gyalogtúra</option>
-        </select> -->
+        <?php foreach ($cimke as $key) : ?>
+            <label class="label checkbox" for="cimke[]" ><?php echo $key['cimke']?> 
+                <input type="checkbox" name="cimke[]" value="<?php echo $key['id'] ?>" 
+                <?php foreach ($cimkeID as $value) { ?>
+                    <?php echo ($key['cimke'] === $value ? "checked" : "") ?>
+                <?php } ?>
+            ></label>
+        <?php endforeach ?>
 
         <label for="teljesitesIdo">Teljesítési idő (óra)</label>
         <input type="number" name="teljesitesIdo" min="1" max="50" value ="<?php echo $crudData['ido']?>">
