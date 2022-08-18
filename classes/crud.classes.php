@@ -10,7 +10,6 @@ class Crud extends DB
 
     public function selectCrudData() 
     {
-        //$db = new DB();
         $conn = $this->getConnect();
         $sql = "SELECT turak.id AS id, turak.nev as turanev, tura_kepek.kep_nev as kepnev, tura_kepek.kep_cim as kepcim, tura_leirasok.leiras as leiras
         FROM turak
@@ -61,6 +60,16 @@ class Crud extends DB
             $statement4 = $this->prepare($insert4, $types4, $params4);
             $statement4->execute();
         }
+    }
+
+    public function cut($string, $num) 
+    {
+        $cutted_string = mb_substr($string, 0, $num);
+        if(!(strlen($cutted_string) === strlen($string))) {
+            $cutted_string .= "...";
+        }
+        
+        return $cutted_string;
     }
 
        

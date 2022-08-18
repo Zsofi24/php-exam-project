@@ -40,37 +40,37 @@ $tableData = $crud->selectCrudData();
         <thead>
                 <tr>
                 <?php
-                foreach ($header as $value) {
-                ?>
+                foreach ($header as $value): ?>
                         <th><?php echo ($value); ?></th>
-                <?php
-                }
-                ?>
-                <th>Műveletek</th>
+                <?php endforeach ?>
+                        <th>Műveletek</th>
                 </tr>
         </thead>
         <tbody>
                 <?php
-                for ($i=0; $i < count($tableData) ; $i++) { 
+                for ($i=0; $i < count($tableData) ; $i++):
                         if (count($tableData[$i]) == count($header)) {
+                                $leiras = $tableData[$i]['leiras'];
+                                $tableData[$i]['leiras'] = $crud->cut($leiras, 100);
                 ?>
-                 
-                <tr>
+                        <tr>
                         <?php
-                        foreach ($tableData[$i] as $key => $value) {
-                                print('<td>' . $value . '</td>');
-                            }
-                        ?>
-                        <td colspan="2">
-                                <a href="">Szerkeszt</a>
-                                <a href="">Töröl</a>
-                        </td>
-                </tr>
+                        foreach ($tableData[$i] as $key => $value): ?>
+                                <td><?php echo $value; ?> </td>
+                        <?php endforeach ?>
+                                <td colspan="2">
+                                        <a href="turaEdit.php?id=<?php echo $tableData[$i]['id']?>">Szerkeszt</a>
+                                        <a href="">Töröl</a>
+                                </td>
+                        </tr>
 
                 <?php
-                } else {
-                        print("más adat");
-                }}
+                        } else {
+                ?>
+                                <p>Rossz adatok</p>
+                <?php
+                        } 
+                        endfor
                 ?>
         </tbody>
 </table>  
