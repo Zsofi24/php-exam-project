@@ -72,6 +72,86 @@ class Crud extends DB
         return $cutted_string;
     }
 
+    public function selectEditData1($id) 
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT turak.id, turak.nev, tura_kepek.kep_nev, tura_kepek.kep_cim, tura_leirasok.leiras,
+        turak.teljesitesi_ido, turak.tura_hossz, tura_tipusok.tura_tipus, tura_szintek.tura_szintek, tura_helyszinek.lokacio       
+        FROM turak
+        LEFT JOIN tura_kepek ON turak.tura_kepek_id = tura_kepek.id
+        LEFT JOIN tura_leirasok ON turak.tura_leirasok_id = tura_leirasok.id
+        LEFT JOIN tura_tipusok ON turak.tura_tipusok_id = tura_tipusok.id
+        LEFT JOIN tura_szintek ON turak.tura_szintek_id = tura_szintek.id
+        LEFT JOIN tura_helyszinek ON turak.tura_helyszinek_id = tura_helyszinek.id
+        WHERE turak.id = $id";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($id, $name, $img, $imgName, $leiras, $ido, $hossz, $tipus, $szint, $lokacio);
+            while ($stmt->fetch()) {
+                $result =['id' =>$id, 'turaNev'=>$name, 'kepNev'=>$img, 'kepCim'=>$imgName, 'leiras'=>$leiras, 'ido'=>$ido, 'hossz'=>$hossz, 'tipus'=>$tipus, 'szint'=>$szint, 'lokacio'=>$lokacio];
+            }
+            return $result;
+        }
+    } 
+    
+    public function selectTipusok()
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_tipusok.tura_tipus FROM tura_tipusok";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($tipus);
+            while ($stmt->fetch()) {
+                $result[] = $tipus;
+            }
+            return $result;
+        }
+    }
+
+    public function selectSzintek()
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_szintek FROM tura_szintek";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($szint);
+            while ($stmt->fetch()) {
+                $result[] = $szint;
+            }
+            return $result;
+        }
+    }
+
+    public function selectLokaciok()
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT lokacio FROM tura_helyszinek";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($lokacio);
+            while ($stmt->fetch()) {
+                $result[] = $lokacio;
+            }
+            return $result;
+        }
+    }
+
+  
+
+
+
        
     /* óraiból */
 
