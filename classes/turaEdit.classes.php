@@ -158,12 +158,42 @@ class turaEdit extends DB
         $statement3 = $this->prepare($insert3, $types3, $params3);
         $statement3->execute();
 
-        // $types4 = "ii";
-        // foreach ($postArray["cimke"] as $value) {
-        //      $params4 = [$value, $id1];
-        //      $insert4 = "INSERT INTO cimke_has_leiras (cimkek_id, tura_leirasok_id) VALUES (?, ?)";
-        //     $statement4 = $this->prepare($insert4, $types4, $params4);
-        //      $statement4->execute();
-        //  }
+        //címke
+
+        // $select = "SELECT cimkek_id FROM cimke_has_leiras WHERE tura_leirasok_id = 
+        //     (SELECT turak.tura_leirasok_id FROM turak WHERE turak.id = $id)";
+        //     $stmt = $this->prepare($sql, "", []);
+        //     $stmt->execute();
+        //     if ($stmt->error === "") {
+        //         $stmt->bind_result($cimkekID);
+        //         while ($stmt->fetch()) {
+        //             $result[]= $cimkekID;
+        //         }
+        //     }
+
+        $deleteSql = "DELETE from cimke_has_leiras WHERE tura_leirasok_id = 
+        (SELECT turak.tura_leirasok_id FROM turak WHERE turak.id = $id)";
+        $delete = $this->prepare($deleteSql, "", []);
+        $delete->execute();
+            
+        $types4 = "ii";
+        $sqlLeirasID = "SELECT tura_leirasok_id FROM turak WHERE turak.id = $id";
+        $stmt = $this->prepare($sqlLeirasID, "", []);
+        $stmt->execute();
+        if ($stmt->error === "") {
+            $stmt->bind_result($leirasID);
+            $stmt->fetch();
+            $leirasId = $leirasID;
+        }
+        $stmt->close();
+
+
+
+        foreach ($postArray["cimke"] as $value) {
+            $params4 = [(int)$value, $leirasId];
+            $insert4 = "INSERT INTO cimke_has_leiras (cimkek_id, tura_leirasok_id) VALUES (?, ?)";
+            $statement4 = $this->prepare($insert4, $types4, $params4);
+            $statement4->execute();
+        }
     }
 }
