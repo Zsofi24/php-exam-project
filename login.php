@@ -1,5 +1,5 @@
 <?php
-include_once 'includes/adminlogin.inc.php';
+include_once 'includes/login.inc.php';
 include_once 'templates/nav.php';
 ?>
 
@@ -32,7 +32,7 @@ include_once 'templates/nav.php';
             <input type="password" name="pwd" placeholder="jelszó">
             <button type="submit" name="submit">Bejelentkezés</button>
         </form>
-</div>
+    </div>
 
 <?php
 include_once 'templates/footer.php';

@@ -15,6 +15,8 @@ session_start();
 <body>
 
 <?php
+require_once ('templates/nav.php');
+
 require_once('includes/jelentkezes.inc.php');
 ?>
 

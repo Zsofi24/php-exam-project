@@ -2,6 +2,18 @@
 session_start();
 ?>
 
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://kit.fontawesome.com/bee62954a8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
 <?php
 require_once('templates/nav.php');
 require_once('sql/DB.php');
@@ -14,22 +26,9 @@ $szintek = $turaEdit->selectSzintek();
 $lokacio = $turaEdit->selectLokaciok();
 $cimke = $turaEdit->selectCimkek();
 $cimkeID = $turaEdit->selectCimkeID($_GET['id']);
-
-
-
 ?>
 
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/styles.css">
-</head>
-<body>
-
+    <a href="admin.php">Vissza</a>
     <div class="div-newTour">
         <form action="includes/turaEdit.inc.php" method="post" enctype="multipart/form-data" class="newTour">
 
@@ -96,5 +95,9 @@ $cimkeID = $turaEdit->selectCimkeID($_GET['id']);
         <input type="submit" value="Szerkesztés" name="edit" >
     </form>
     </div>
+
+<?php
+require_once('templates/footer.php');
+?>
 </body>
 </html>

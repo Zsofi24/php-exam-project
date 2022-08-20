@@ -26,8 +26,8 @@ class turaEdit extends DB
             }
             return $result;
         }
-
     }
+    
     public function selectTipusok()
     {
         $conn = $this->getConnect();
@@ -129,8 +129,6 @@ class turaEdit extends DB
         $statement1 = $this->prepareOne($insert1, $types1, $params1);
         $statement1->execute();
 
-        
-
         if(!empty($_POST['kepNev'])){
             $types2 = "s";
             $params2 = $postArray["kepNev"];
@@ -149,7 +147,6 @@ class turaEdit extends DB
         $statement5 = $this->prepareOne($insert5, $types5 , $params5);
         $statement5->execute();
 
-
         $types3 = "siiii";
         $params3 = [$postArray["turaNev"], $postArray["teljesitesIdo"], $postArray["turaHossz"], $postArray["turaSzint"], $postArray["turaTipus"]];
         $insert3 = "UPDATE turak  SET nev = (?), teljesitesi_ido = (?), tura_hossz = (?), 
@@ -157,19 +154,6 @@ class turaEdit extends DB
         WHERE id = $id";
         $statement3 = $this->prepare($insert3, $types3, $params3);
         $statement3->execute();
-
-        //címke
-
-        // $select = "SELECT cimkek_id FROM cimke_has_leiras WHERE tura_leirasok_id = 
-        //     (SELECT turak.tura_leirasok_id FROM turak WHERE turak.id = $id)";
-        //     $stmt = $this->prepare($sql, "", []);
-        //     $stmt->execute();
-        //     if ($stmt->error === "") {
-        //         $stmt->bind_result($cimkekID);
-        //         while ($stmt->fetch()) {
-        //             $result[]= $cimkekID;
-        //         }
-        //     }
 
         $deleteSql = "DELETE from cimke_has_leiras WHERE tura_leirasok_id = 
         (SELECT turak.tura_leirasok_id FROM turak WHERE turak.id = $id)";
@@ -186,8 +170,6 @@ class turaEdit extends DB
             $leirasId = $leirasID;
         }
         $stmt->close();
-
-
 
         foreach ($postArray["cimke"] as $value) {
             $params4 = [(int)$value, $leirasId];

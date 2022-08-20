@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="hu">
 <head>
@@ -60,7 +64,7 @@ $tableData = $crud->selectCrudData();
                         <?php endforeach ?>
                                 <td colspan="2">
                                         <a href="turaEdit.php?id=<?php echo $tableData[$i]['id']?>">Szerkeszt</a>
-                                        <a href="">Töröl</a>
+                                        <a href="turaDelete.php?id=<?php echo $tableData[$i]['id']?>">Töröl</a>
                                 </td>
                         </tr>
 

@@ -12,7 +12,6 @@ if(isset($_POST['edit']))
     
     echo "siker";
 
-
 } else {
     echo "nem";
 }

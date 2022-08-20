@@ -1,5 +1,4 @@
 <?php
-require_once ('templates/nav.php');
 require_once('sql/DB.php');
 require_once('classes/jelentkezes.classes.php');
 require_once('classes/jelentkezessql.classes.php');
