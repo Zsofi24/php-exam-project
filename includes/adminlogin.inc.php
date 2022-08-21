@@ -8,8 +8,8 @@ if(isset($_POST["adminsubmit"])) {
     $pwd = $_POST["pwd"];
     
     include "classes/dbh.classes.php";    
-    include "classes/login.classes.php";
-    include "classes/login-contr.classes.php";
+    include "classes/adminLogin.classes.php";
+    include "classes/adminLogin-contr.classes.php";
     $login = new LoginContr($uid, $pwd);
 
     $errors = $login->errors();

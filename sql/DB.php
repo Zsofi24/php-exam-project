@@ -30,7 +30,7 @@ class DB {
 
     public function insertJelentkezes($postArray)
     {
-        $fieldArray = ['vezeteknev', 'keresztnev', 'email', 'telefonszam', 'tura_neve', 'idopont', 'fo', 'jelentkezes'];
+        $fieldArray = ['vezeteknev', 'keresztnev', 'email', 'telefonszam', 'tura_neve', 'idopont', 'fo', 'jelentkezes',];
         $mysql = $this->getConnect();
         $types = "ssssiiis";
         foreach ($postArray as $key => $value) {

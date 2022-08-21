@@ -9,7 +9,7 @@
         <h3>Túrázzon velünk!</h3>
     </div>
     <div class="admin-login">
-        <a href="admin-bejelentkezes.php">Admin belépés</a>
+        <a href="adminLogin.php">Admin belépés</a>
     </div>
 </footer>
 </body>

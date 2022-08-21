@@ -3,12 +3,12 @@ session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Jelentkezés</title>
     <script src="https://kit.fontawesome.com/bee62954a8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
@@ -16,7 +16,6 @@ session_start();
 
 <?php
 require_once ('templates/nav.php');
-
 require_once('includes/jelentkezes.inc.php');
 ?>
 
@@ -39,7 +38,7 @@ require_once('includes/jelentkezes.inc.php');
     <div class="error">
         <?php echo $errors['keresztnev'] ?? '' ?>
       </div>
-    <label for="email">Email</label>
+    <label for="email">E-mail cím</label>
     <input type="email" id="email" name="email" value="<?= $_POST['email'] ?? ''?>">
     <div class="error">
         <?php echo $errors['email'] ?? '' ?>
@@ -55,13 +54,13 @@ require_once('includes/jelentkezes.inc.php');
           <option value="<?php echo $value ?>"><?php echo $value ?></option>
         <?php endforeach ?>
     </select>
-    <label for="idopont">Időpont</label>
+    <!-- <label for="idopont">Időpont</label>
     <select id="idopont" name="idopont">
         <option value="#">1</option>
         <option value="#">2</option>
         <option value="#">3</option>
         <option value="#">4</option>
-    </select>
+    </select> -->
     <label for="fo">Fő</label>
     <input type="number" id="fo" name="fo" min="1" max="40" value="<?= $_POST['fo'] ?? ''?>">
     <div class="error">

@@ -33,7 +33,7 @@ class JelentkezesValidator {
         $val = trim($this->data['vezeteknev']);
 
         if(empty($val)){
-        $this->addError('vezeteknev', 'Vezetéknév mező nem lehet üres!');
+        $this->addError('vezeteknev', 'Kérem, adja meg a vezetéknevét!');
         } else {
         if(!preg_match('/^[a-zA-Z]+$/', $val)){
             $this->addError('vezeteknev','Vezetéknév csak betűket tartalmazhat!');
@@ -46,7 +46,7 @@ class JelentkezesValidator {
         $val = trim($this->data['keresztnev']);
 
         if(empty($val)){
-        $this->addError('keresztnev', 'Kersztnév mező nem lehet üres!');
+        $this->addError('keresztnev', 'Kérem, adja meg a keresztnevét!');
         } else {
         if(!preg_match('/^[a-zA-Z]+$/', $val)){
             $this->addError('keresztnev','Keresztnév csak betűket tartalmazhat!');
@@ -60,10 +60,10 @@ class JelentkezesValidator {
         $val = trim($this->data['email']);
     
         if(empty($val)){
-          $this->addError('email', 'Email mező nem lehet üres!');
+          $this->addError('email', 'Kérem, adja meg az e-mail címét!');
         } else {
           if(!filter_var($val, FILTER_VALIDATE_EMAIL)){
-            $this->addError('email', 'Valós email címet adjon meg!');
+            $this->addError('email', 'Valós e-mail címet adjon meg!');
         }
         }
     }
@@ -74,10 +74,10 @@ class JelentkezesValidator {
         $val = trim($this->data['telefon']);
     
         if(empty($val)){
-          $this->addError('telefon', 'Telefon mező nem lehet üres!');
+          $this->addError('telefon', 'Kékrem, adja meg a telefonszámát!');
         } else {
             if(!preg_match('/((?:\+?3|0)6)(?:-|\()?(\d{1,2})(?:-|\))?(\d{3})-?(\d{3,4})/', $val)){
-            $this->addError('telefon', 'Helyes formátumban adja meg!');
+            $this->addError('telefon', 'Helyes formátumban adja meg a telefonszámot!');
         }
         }
     }
@@ -88,7 +88,7 @@ class JelentkezesValidator {
         $val = trim($this->data['fo']);
     
         if(empty($val)){
-          $this->addError('fo', 'Fő mező nem lehet üres!');
+          $this->addError('fo', 'Kérem, adja meg a jelentkezők létszámát    !');
         } else {
             if(!preg_match('/^[1-9][0-9]{0,40}$/', $val)){
             $this->addError('fo', 'Helyes formátumban adja meg!');
