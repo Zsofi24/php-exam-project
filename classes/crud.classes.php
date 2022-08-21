@@ -187,10 +187,6 @@ class Crud extends DB
         }
     }
 
-  
-
-
-
        
     /* óraiból */
 

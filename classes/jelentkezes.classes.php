@@ -88,7 +88,7 @@ class JelentkezesValidator {
         $val = trim($this->data['fo']);
     
         if(empty($val)){
-          $this->addError('fo', 'Kérem, adja meg a jelentkezők létszámát    !');
+          $this->addError('fo', 'Kérem, adja meg a jelentkezők létszámát!');
         } else {
             if(!preg_match('/^[1-9][0-9]{0,40}$/', $val)){
             $this->addError('fo', 'Helyes formátumban adja meg!');
