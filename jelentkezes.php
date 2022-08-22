@@ -24,6 +24,9 @@ require_once('includes/jelentkezes.inc.php');
 <?php elseif($status === "validationerror"): ?>
   <h1>Sikertelen jelentkezés</h1>
   <p>*Kérem, helyes adatokat adjon meg!</p>
+<?php elseif($status === "loginerror"): ?>
+  <h1>Sikertelen jelentkezés</h1>
+  <p>*A jelentkezés elküldéséhez, kérem <a href="login.php" >Jelentkezzen be</a>. Ha nincs még felhasználói fiókja, akkor <a href="signup.php">Regisztráljon!</a></p>
 <?php endif ?>
 
 <div class="form-jelentkezes">

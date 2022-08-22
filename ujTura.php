@@ -16,14 +16,28 @@ session_start();
 
 <?php
 include_once 'templates/nav.php';
-require_once 'includes/ujTura.inc.php';
+require_once 'includes/newTour.inc.php';
 ?>
 
 <a href="admin.php">Vissza</a>
+
+<?php if($status === 'success'): ?>
+    <h1>Sikeresen hozzáadta az új túrát!</h1> 
+<?php elseif($status === 'inserterror'): ?>
+    <h1>Nem sikerült hozzáadni az új túrát.</h1>
+    <p><?php echo $errors['empty'] ?? '' ?></p>
+<?php elseif($status === 'emptyimg'): ?>
+    <h1>Nem sikerült hozzáadni az új túrát.</h1>
+    <p>*Kérem, töltsön fel egy képet.</p>
+<?php endif ?>
+
 <div class="div-newTour">
-    <form method="post" action="hozzaad.php" enctype="multipart/form-data" class="newTour">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" enctype="multipart/form-data" class="newTour">
         <label for="turaNev">Túra neve</label>
         <input type="text" name="turaNev">
+        <div class="error">
+            <p><?php echo $errors['name'] ?? '' ?></p>
+        </div>
 
         <label for="turaTipus">Túra típusa</label>
         <select name="turaTipus">
@@ -41,12 +55,16 @@ require_once 'includes/ujTura.inc.php';
 
         <label for="leiras">Leírás</label>
         <textarea  name="leiras" ></textarea>
+        
 
         <label for="kepFile">Kép kiválasztása</label>
         <input type="file" name="kepFile">
 
         <label for="kepCim">Kép cím (alt tag)</label>
         <input type="text" name="kepCim">
+        <div class="error">
+                <p><?php echo $errors['imgName'] ?? '' ?></p>
+        </div>
 
         <label for="lokacio">Lokáció</label>
         <select name="lokacio">
@@ -64,9 +82,15 @@ require_once 'includes/ujTura.inc.php';
         
         <label for="teljesitesIdo">Teljesítési idő (óra)</label>
         <input type="number" name="teljesitesIdo" min="1" max="50">
+        <div class="error">
+                <p><?php echo $errors['hours'] ?? '' ?></p>
+        </div>
 
         <label for="turaHossz">Túra hossz (km)</label>
         <input type="number" name="turaHossz" min="1" max="100">
+        <div class="error">
+                <p><?php echo $errors['length'] ?? '' ?></p>
+        </div>
         
         <input type="submit" value="hozzáad" name="submit">
     </form>

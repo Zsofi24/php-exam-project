@@ -94,6 +94,7 @@ body, html {
     display: flex;
     align-content: center;
     justify-content: center;
+    height: 70vh;
 }
 
 .form-jelentkezes form {
@@ -103,17 +104,19 @@ body, html {
     align-content: center;
     justify-content: center;
     justify-self: center;
-    border: 2px solid black;
-    padding: 10px;
+    padding: 15px;
+    background-color: rgb(82, 45, 12);
 }
 
 .form-jelentkezes form label {
     padding: 6px 0;
-    font-size: 20px;
+    font-size: 25px;
+    width: 80%;
 }
 
 .form-jelentkezes form input {
-    height: 30px;
+    font-size: 25px;
+    padding: 5px;
 }
 
 .form-jelentkezes form select {
@@ -302,21 +305,34 @@ form.newTour input[type=submit] {
 
 /* túrák */
 
+.toursH1 {
+    text-align: center;
+    font-size: 50px;
+    margin: 40px;
+    padding: 30px;
+    background-color: #422720;
+    color:rgb(183, 180, 180);
+    text-shadow: #d7bcac;
+}
+
 .box {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
 
 section.tura {
-    border: 13px solid rgb(73, 16, 11);
+    background-color: #d7bcac;
     display: flex;
     flex-direction: column;
     width: 30%;
     margin: 10px;
     padding: 20px;
+    border-radius: 20px;
+}
 
+section.tura:hover {
+    filter: drop-shadow(8px 8px 10px gray) saturate(2);
 }
 
 section.tura h1 {
@@ -329,8 +345,12 @@ section.tura p {
     font-size: 18px;
 }
 
+a.bigLink {
+    text-decoration: none;
+}
 
-section.tura a {
+
+section.tura a.smallLink {
     margin: 20px 0 0 0;
     text-decoration: none;
     background-color:#0c1b20;
@@ -345,22 +365,77 @@ section.tura .img img{
     border-radius: 20px;
 }
 
+section.tura h1 {
+    font-size: 30px;
+    color: black;
+    
+}
+
+section.tura p {
+    font-size: 23px;
+    color: black;
+    background-color: #d7c8bf;
+    border-radius: 20px;
+    padding: 10px;
+    
+}
+
 /* túra info */
 
+.container-turainfo {
+    margin: 0 auto;
+    width: 60%;
+}
+
 .img-turainfo img {
-    width: 30%;
+    width: 70%;
+    margin: 25px 0;
+    border-radius: 30px;
+}
+
+.container-turainfo h1 {
+    text-align: center;
+    font-size: 40px;
 }
 
 .container-turainfo .cimke {
     display: flex;
+    margin: 10px;
 }
 
 .container-turainfo .cimke div {
     margin: 10px;
-    border: 1px solid brown;
+    border: 3px solid brown;
     border-radius: 10px;
     padding: 10px;
+    font-weight: bold;
+    font-size: 17px;
 }
+
+.cont .tourData h3 {
+    font-size: 30px;
+    margin: 0 0 10px 0;
+
+}
+
+.cont .tourData p {
+    font-size: 20px;
+    line-height: 25px;
+
+}
+
+.cont article {
+    font-size: 20px;
+    line-height: 25px;
+    margin: 40px 0;
+}
+
+.cont article h4 {
+    font-size: 30px;
+    margin: 0 0 10px 0;
+}
+
+
 
 
 

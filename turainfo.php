@@ -33,15 +33,21 @@ include_once 'templates/nav.php';
         <?php endforeach ?>
     </div>
     <div class="cont">
-        <article>
-           <p><?php echo $leiras ?></p>
-        </article>
-        <div class="adatok">
+        <div class="tourData">
+            <h3>Adatok</h3>
             <p>Szint: <?php echo $szinttipus['szint']?></p>
             <p>Típus: <?php echo $szinttipus['tipus']?> </p>
             <p>Helyszín: <?php echo $lokacio ?> </p>
             <p>Teljesítési idő: <?php echo $idohossz['ido']?> óra</p>
             <p>Túra hossz: <?php echo $idohossz['hossz']?> km </p>
         </div>
+        <article>
+            <h4>Leírás</h4>
+            <p><?php echo $leiras ?></p>
+        </article>
     </div>
 </div>
+
+<?php
+include_once 'templates/footer.php';
+?>

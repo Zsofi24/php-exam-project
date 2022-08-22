@@ -11,15 +11,19 @@ $status = "";
 
 if(isset($_POST['submit'])){
 
-  $validation = new JelentkezesValidator($_POST);
-  $errors = $validation->validateForm();
-    
-  if(empty($errors)) {
-    $insert = new DB();
-    $insert = $insert->insertJelentkezes($_POST);
-    $status = 'success';
+  if(empty($_SESSION)) {
+    $status = 'loginerror';
   } else {
-    $status = 'validationerror';
+    $validation = new JelentkezesValidator($_POST);
+    $errors = $validation->validateForm();
+      
+    if(empty($errors)) {
+      $insert = new DB();
+      $insert = $insert->insertJelentkezes($_POST);
+      $status = 'success';
+    } else {
+      $status = 'validationerror';
+    }
   }
     
 }

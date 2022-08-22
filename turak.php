@@ -22,17 +22,21 @@ require_once 'includes/turak.inc.php';
 include_once 'templates/nav.php';
 ?>
 
+<h1 class="toursH1">Csoportos, vezetett túrák</h1>
+
 <div class="box">
 
     <?php foreach ($box as $key => $value): ?>
+        <a class="bigLink" href="turainfo.php?id=<?php echo $value['turaId']?>">
         <section class="tura">
             <div class="img">
                 <img src="img/<?php echo $value['kepNev'];?>" alt="<?php echo $value['kepCim'];?>">
             </div>
             <h1><?php echo $value['turaNev']; ?></h1>
             <p><?php echo $leiras[$key]; ?></p>
-            <a href="turainfo.php?id=<?php echo $value['turaId']?>">Leírás</a>
+            <a class ="smallLink" href="turainfo.php?id=<?php echo $value['turaId']?>">Leírás</a>
         </section>
+        </a>
     <?php
     endforeach
     ?>

@@ -7,11 +7,9 @@ require_once('classes/crud.classes.php');
                 
 
                 if(copy($_FILES["kepFile"]["tmp_name"], 'img/'.$_FILES['kepFile']['name'])) {
-       
                     $crud = new Crud();
                     $_POST['kepNev'] = $_FILES['kepFile']['name'];
                     $insert = $crud->insertUjTura($_POST);
-                    echo "siker";
+                    header('Location: admin.php');
                 }
-        }
-    
+        }    
