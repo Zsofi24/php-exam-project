@@ -1,4 +1,5 @@
 <?php
+
 require_once('sql/DB.php');
 require_once('classes/admindAut.classes.php');
 $adminAut = new AdminAut();

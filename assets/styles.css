@@ -94,7 +94,8 @@ body, html {
     display: flex;
     align-content: center;
     justify-content: center;
-    height: 70vh;
+    max-height: 75%;
+    
 }
 
 .form-jelentkezes form {
@@ -104,29 +105,49 @@ body, html {
     align-content: center;
     justify-content: center;
     justify-self: center;
-    padding: 15px;
-    background-color: rgb(82, 45, 12);
+    padding: 5vh;
+    background-color: rgb(33 38 46);
+    border-radius: 15px 0 0 40px;
 }
 
 .form-jelentkezes form label {
-    padding: 6px 0;
     font-size: 25px;
     width: 80%;
+    color: white;
+    font-weight: bold;
+    padding: 6px 0;
 }
 
 .form-jelentkezes form input {
-    font-size: 25px;
+    height: 10vh;
+    font-size: 20px;
+    background-color: #f0ffc4;
     padding: 5px;
+    margin: 5px;
+    border: 2px solid white;
+
 }
 
 .form-jelentkezes form select {
-    height: 30px;
+    height: 10vh;
+    font-size: 20px;
+    background-color: #f0ffc4;
+    padding: 5px;
+    margin: 5px;
+
 }
 
 .form-jelentkezes form input#submit {
     max-width: 60%;
-    margin: 10px 0 0 0;
-    font-size: 20px;
+    margin: 0 auto;
+    font-size: 25px;
+    color: rgb(229, 212, 186);
+    border: 2px solid rgb(151, 98, 0);
+    background-color: rgb(153, 56, 20);
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .form-jelentkezes form div.error {
@@ -134,10 +155,11 @@ body, html {
 }
 
 div.form-image {
-    background-image: url('../img/form.jpg');
+    background-image: url('../img/formApply.jpg');
     background-position: center;
     background-size: cover;
     width: 40%;
+    border-radius: 0 50px 15px 0;
 }
 
 /*form regisztráció */

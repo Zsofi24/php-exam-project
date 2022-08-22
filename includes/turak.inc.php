@@ -1,13 +1,15 @@
 <?php
-require_once "sql/DB.php";
 
-$db = new DB();
-if($db->getConnect()) {
+require_once ('sql/DB.php');
+require_once ('classes/turak.classes.php');
+
+$tura = new Tura();
+if($tura->getConnect()) {
    
-    $box = $db->selectBox();
+    $box = $tura->selectBox();
    
     foreach ($box as $key => $value) {
-        $leiras[] = $db->cut($value['leiras'], 200);
+        $leiras[] = $tura->cut($value['leiras'], 200);
     } 
     
 }

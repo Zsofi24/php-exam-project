@@ -18,4 +18,20 @@ class JelentkezesSql extends DB
             return $result;
         }
     }
+
+    public function insertJelentkezes($postArray, $date)
+    {
+        $fieldArray = ['vezeteknev', 'keresztnev', 'email', 'telefonszam', 'tura_neve', 'fo', 'jelentkezes', 'jelentkezes_datuma'];
+        $mysql = $this->getConnect();
+        $types = "sssiiiss";
+        foreach ($postArray as $key => $value) {
+            $params[] = $value;
+        }
+            $params[] = $date;
+             $insert = "INSERT INTO tura_jelentkezes ($fieldArray[0], $fieldArray[1], $fieldArray[2], $fieldArray[3], $fieldArray[4], $fieldArray[5], $fieldArray[6], $fieldArray[7] ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+             $statement = $this->prepare($insert, $types, $params);
+             $statement->execute();
+        
+        $this->close();
+    }
 }

@@ -27,20 +27,15 @@ require_once('includes/adminAut.inc.php');
                                 } );
                 </script> -->
 <?php
-
 require_once('templates/nav.php');
-require_once('sql/DB.php');
-require_once('classes/crud.classes.php');
-$crud = new Crud();
-$header = $crud->getHeader();
-$tableData = $crud->selectCrudData();
-
+require_once('includes/admin.inc.php');
 ?> 
    
 <div class="addButton">
         <button><a href="ujTura.php">Új hozzáadása</a>
         </button>
 </div>
+
 <table class="crud-table">
         <thead>
                 <tr>
