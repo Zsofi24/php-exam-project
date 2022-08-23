@@ -66,7 +66,7 @@ class NewTourContr extends ujTura
 
     private function invalidName()
     {
-        if(!preg_match(("/^[a-zA-Z0-9]*$/"), $this->name)) {
+        if(!preg_match(("/^[a-zA-Z0-9- ]*$/"), $this->name)) {
             $result = false;
         } else {
             $result = true;
@@ -76,7 +76,7 @@ class NewTourContr extends ujTura
 
     private function invalidImgName()
     {
-        if(!preg_match(("/^[a-zA-Z0-9]*$/"), $this->imgName)) {
+        if(!preg_match(("/^[a-zA-Z0-9- ]*$/"), $this->imgName)) {
             $result = false;
         } else {
             $result = true;

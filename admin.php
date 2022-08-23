@@ -31,7 +31,7 @@ require_once('templates/nav.php');
 require_once('includes/admin.inc.php');
 ?> 
    
-<div class="addButton">
+<div class="addNewTour">
         <button><a href="ujTura.php">Új hozzáadása</a>
         </button>
 </div>
@@ -43,7 +43,7 @@ require_once('includes/admin.inc.php');
                 foreach ($header as $value): ?>
                         <th><?php echo ($value); ?></th>
                 <?php endforeach ?>
-                        <th>Műveletek</th>
+                        <th>műveletek</th>
                 </tr>
         </thead>
         <tbody>
@@ -58,9 +58,9 @@ require_once('includes/admin.inc.php');
                         foreach ($tableData[$i] as $key => $value): ?>
                                 <td><?php echo $value; ?> </td>
                         <?php endforeach ?>
-                                <td colspan="2">
-                                        <a href="turaEdit.php?id=<?php echo $tableData[$i]['id']?>">Szerkeszt</a>
-                                        <a href="turaDelete.php?id=<?php echo $tableData[$i]['id']?>">Töröl</a>
+                                <td class="option" colspan="2">
+                                        <a class="edit-row" href="turaEdit.php?id=<?php echo $tableData[$i]['id']?>">Szerkeszt</a>
+                                        <a class="delete-row" href="turaDelete.php?id=<?php echo $tableData[$i]['id']?>">Töröl</a>
                                 </td>
                         </tr>
 

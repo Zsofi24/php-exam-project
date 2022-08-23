@@ -15,14 +15,13 @@ body, html {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    background-image: linear-gradient(to right, #422720, #4f4a4e, #303f44, #52778a, #26373d );
+    background-image: linear-gradient(to right, #5c281a, #5e373b, #575c6a, #5791a6, #2a3039 );
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .nav ul {
@@ -75,10 +74,12 @@ body, html {
 
 .picture {
     height: 65vh;
-    background-image: url('../img/header2.jpg');
+    background-image: url('../img/header22.jpg');
+    filter: brightness(150%) contrast(130%);
     width: 100%;
     background-position: center;
     background-size: cover;
+    height: 90vh;
 }
 
 .index-content {
@@ -324,27 +325,67 @@ form.newTour input[type=submit] {
     
 }
 
+/* túra törlése */
+
+.delete {
+    margin: 0 auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.delete form {
+    font-size: 20px;
+}
+
+.delete form a{
+    text-decoration: none;
+    text-align: center;
+    background-color:#26373d;
+    font-size: 25px;
+    margin: 10px 0;
+    color: white;
+
+}
+
+.delete form button{
+    background-color:#2e0b0b;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 10px 0;
+    color: white;
+}
+
 
 /* túrák */
 
+.tours {
+    width: 100%;
+    height: 15vh;
+    padding: 10px;
+}
+
 .toursH1 {
-    text-align: center;
+    text-align: left;
     font-size: 50px;
-    margin: 40px;
-    padding: 30px;
-    background-color: #422720;
-    color:rgb(183, 180, 180);
-    text-shadow: #d7bcac;
+    color:#5d302b;
 }
 
 .box {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: grey;
+    background-image: url('../img/box2.jpg');
+    z-index: -100;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 section.tura {
-    background-color: #d7bcac;
+    background-color: #7e570c;
     display: flex;
     flex-direction: column;
     width: 30%;
@@ -354,23 +395,12 @@ section.tura {
 }
 
 section.tura:hover {
-    filter: drop-shadow(8px 8px 10px gray) saturate(2);
-}
-
-section.tura h1 {
-    margin: 12px 0;
-    text-align: center;
-    font-size: 25px;
-}
-
-section.tura p {
-    font-size: 18px;
+    filter: drop-shadow(8px 8px 10px gray) sepia(100%) contrast(160%);
 }
 
 a.bigLink {
     text-decoration: none;
 }
-
 
 section.tura a.smallLink {
     margin: 20px 0 0 0;
@@ -379,7 +409,8 @@ section.tura a.smallLink {
     color: white;
     font-weight: bold;
     font-size: 20px;
-    padding: 10px;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 section.tura .img img{
@@ -389,17 +420,29 @@ section.tura .img img{
 
 section.tura h1 {
     font-size: 30px;
+    margin: 12px 0;
     color: black;
-    
 }
 
 section.tura p {
-    font-size: 23px;
+    font-size: 19px;
     color: black;
     background-color: #d7c8bf;
     border-radius: 20px;
     padding: 10px;
-    
+}
+div.link-jelentkezes {
+    margin: 30px 0;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+    background-image: linear-gradient(to right, rgb(64, 16, 16), rgb(3, 82, 99), rgb(132, 125, 0) )  ;
+}
+div.link-jelentkezes a {
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
 }
 
 /* túra info */
@@ -457,20 +500,19 @@ section.tura p {
     margin: 0 0 10px 0;
 }
 
-
-
-
-
 /* admin crud */
 
 table.crud-table {
     width: 70%;
+    margin: 40px auto;
 }
 
 table.crud-table tr th {
     border: 1px solid black;
     font-size: 40px;
     padding: 6px;
+    background-color: #422720;
+    color: white;
 }
 
 table.crud-table tr td {
@@ -478,8 +520,19 @@ table.crud-table tr td {
     margin: 10px 0;
 }
 
+table.crud-table td.option a.edit-row{
+    text-decoration: none;
+    color: rgb(6, 14, 56);
+    background-color: #d7bcac;
+    font-size: 20px;
+}
 
-
+table.crud-table td.option a.delete-row{
+    text-decoration: none;
+    color: red;
+    background-color: #d7bcac;
+    font-size: 20px;
+}
 
 /* footer */
 

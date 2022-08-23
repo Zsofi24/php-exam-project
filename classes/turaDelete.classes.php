@@ -25,7 +25,5 @@ class turaDelete extends DB
          (SELECT tura_leirasok_id FROM turak)";
          $stmt4 = $this->prepare($sql4, "", []);
          $stmt4->execute();
-
-
     }
 }

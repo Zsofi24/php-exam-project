@@ -46,6 +46,9 @@ include_once 'templates/nav.php';
             <p><?php echo $leiras ?></p>
         </article>
     </div>
+    <div class="link-jelentkezes">
+    <a href="jelentkezes.php" >Jelentkezés</a>
+    </div>
 </div>
 
 <?php

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('includes/adminAut.inc.php');
 ?>
 
 <?php
@@ -19,18 +20,8 @@ require_once('templates/nav.php');
 </head>
 <body>
 
-<?php
-
-
-// require_once('sql/DB.php');
-// require_once('classes/turaDelete.classes.php');
-//$id = $_GET['id'];
-//$turaDelete = new turaDelete();
-?>
-
-
-    <div class="form-login">
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+    <div class="delete">
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" class="delete">
             <h1>Biztosan törölni szeretné?</h1>
             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?? ''?>">
             <a href="admin.php">Nem</a>            
@@ -38,10 +29,9 @@ require_once('templates/nav.php');
         </form>
     </div>
 
-
-
 <?php
 require_once('templates/footer.php');
 ?>
+
 </body>
 </html>

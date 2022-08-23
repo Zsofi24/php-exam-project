@@ -21,8 +21,9 @@ require_once 'includes/turak.inc.php';
 <?php
 include_once 'templates/nav.php';
 ?>
-
+<div class="tours">
 <h1 class="toursH1">Csoportos, vezetett túrák</h1>
+</div>
 
 <div class="box">
 

@@ -1,7 +1,7 @@
 <?php
 class Crud extends DB
 {
-    private $header = ['ID', 'Túranév', 'képnév', 'képcím', 'leírás'];
+    private $header = ['ID', 'túranév', 'képnév', 'képcím', 'leírás'];
 
     public function getHeader()
     {
