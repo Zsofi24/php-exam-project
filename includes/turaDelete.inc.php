@@ -10,10 +10,5 @@ if(isset($_POST['delete'])) {
     $turaDelete = new turaDelete();
     $delete = $turaDelete->deleteData($id);
     
-
     header('Location: admin.php');
-    
-    
-    
 }
-

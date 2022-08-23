@@ -19,18 +19,30 @@ require_once('templates/nav.php');
 require_once('sql/DB.php');
 require_once('classes/turaEdit.classes.php');
 $turaEdit = new turaEdit();
-$GETid = $_GET['id'];
-$crudData = $turaEdit->selectEditData($_GET['id']);
-$tipusok = $turaEdit->selectTipusok();
-$szintek = $turaEdit->selectSzintek();
-$lokacio = $turaEdit->selectLokaciok();
-$cimke = $turaEdit->selectCimkek();
-$cimkeID = $turaEdit->selectCimkeID($_GET['id']);
+if(isset($_GET['id'])) {
+
+    $GETid = $_GET['id'];
+    $crudData = $turaEdit->selectEditData($_GET['id']);
+    $tipusok = $turaEdit->selectTipusok();
+    $szintek = $turaEdit->selectSzintek();
+    $lokacio = $turaEdit->selectLokaciok();
+    $cimke = $turaEdit->selectCimkek();
+    $cimkeID = $turaEdit->selectCimkeID($_GET['id']);
+}
+
+require_once('includes/turaEdit.inc.php');
+
 ?>
 
     <a href="admin.php">Vissza</a>
+    <div>
+        <?php if($status === "success"): ?>
+            <h1><?php echo 'siker' ?></h1>
+        <?php endif ?>
+    </div>
+    
     <div class="div-newTour">
-        <form action="includes/turaEdit.inc.php" method="post" enctype="multipart/form-data" class="newTour">
+        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" class="newTour">
 
         <label for="turaNev">Túra neve</label>
         <input type="text" name="turaNev" value ="<?php echo $crudData['turaNev']?>">
