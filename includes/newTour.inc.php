@@ -42,6 +42,7 @@ if(isset($_POST["submit"])) {
         
             if (empty($errors)) {
                $status = "success";
+               
                 $kepNev = $_FILES['kepFile']['name'];
                 $insert = $data->insertNewTour($text, $kepNev, $imgName, $name, $hours, $length, $location, $level, $type, $label);
         

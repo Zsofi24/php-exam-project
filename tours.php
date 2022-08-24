@@ -21,28 +21,35 @@ require_once 'includes/tours.inc.php';
 <?php
 include_once 'templates/nav.php';
 ?>
-<div class="tours">
-<h1 class="toursH1">Csoportos, vezetett túrák</h1>
-</div>
 
-<div class="box">
+<?php foreach ($locations as $key => $value): ?>
+    <?php $id = $locations[$key]['helyszinId'] ?>
+    <?php $name = $locations[$key]['helyszinNev'] ?>
+    <div class="tours">
+    <h1 class="toursH1"><?php echo $name?></h1>
+    </div>
 
-    <?php foreach ($box as $key => $value): ?>
-        <a class="bigLink" href="tourInfo.php?id=<?php echo $value['turaId']?>">
-        <section class="tura">
-            <div class="img">
-                <img src="img/<?php echo $value['kepNev'];?>" alt="<?php echo $value['kepCim'];?>">
-            </div>
-            <h1><?php echo $value['turaNev']; ?></h1>
-            <p><?php echo $leiras[$key]; ?></p>
-            <a class ="smallLink" href="tourInfo.php?id=<?php echo $value['turaId']?>">Leírás</a>
-        </section>
-        </a>
-    <?php
-    endforeach
-    ?>
+    
+    <div class="box">
+        <?php foreach ($box[$key] as $keyy => $value): ?>
+            <a class="bigLink" href="tourInfo.php?id=<?php echo $box[$key][$keyy]['turaId']?>">
+            <section class="tura">
+                <div class="img">
+                    <img src="img/<?php echo $box[$key][$keyy]['kepNev'];?>" alt="<?php echo $box[$key][$keyy]['kepCim'];?>">
+                </div>
+                <h1><?php echo $box[$key][$keyy]['turaNev']; ?></h1>
+                <p><?php echo $leiras[$key][$keyy]; ?></p>
+                <a class ="smallLink" href="tourInfo.php?id=<?php echo $box[$key][$keyy]['turaId']?>">Leírás</a>
+            </section>
+            </a>
+        <?php endforeach ?>
+    </div>
 
-</div>
+<?php endforeach ?>
+
+
+
+
 
 <?php
 include_once 'templates/footer.php';

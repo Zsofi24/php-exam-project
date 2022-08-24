@@ -22,6 +22,46 @@ class Tura extends DB
         }
     }
 
+    public function selectBoxLocation($locationIdd)
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT turak.id, turak.nev, tura_kepek.kep_nev, tura_kepek.kep_cim, tura_leirasok.leiras,
+        tura_helyszinek.id, tura_helyszinek.lokacio
+        FROM turak
+        LEFT JOIN tura_kepek ON turak.tura_kepek_id = tura_kepek.id
+        LEFT JOIN tura_leirasok ON turak.tura_leirasok_id = tura_leirasok.id
+        LEFT JOIN tura_helyszinek ON turak.tura_helyszinek_id = tura_helyszinek.id
+        WHERE tura_helyszinek.id = '".$locationIdd."'";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($id, $name, $img, $imgName, $leiras, $locationId, $locationName);
+            while ($stmt->fetch()) {
+                $box[] =['turaId'=>$id, 'turaNev'=>$name, 'kepNev'=>$img, 'kepCim'=>$imgName, 'leiras'=>$leiras, 'helyszinId'=>$locationId, 'helyszinNev'=>$locationName];
+            }
+            return $box;
+        }
+    }
+
+    public function selectLocations()
+    {
+        $conn = $this->getConnect();
+        $sql = "SELECT tura_helyszinek.id, tura_helyszinek.lokacio FROM tura_helyszinek";
+        $stmt = $this->prepare($sql, "", []);
+        $stmt->execute();
+        if ($stmt->error !== "") {
+            return $stmt->error;
+        } else {
+            $stmt->bind_result($id, $name);
+            while ($stmt->fetch()) {
+                $box[] =['helyszinId'=>$id, 'helyszinNev'=>$name];
+            }
+            return $box;
+        }
+    }
+
     public function cut($string, $num) 
     {
         $cutted_string = mb_substr($string, 0, $num);

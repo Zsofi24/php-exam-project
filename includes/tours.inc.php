@@ -5,11 +5,14 @@ require_once ('classes/tours.classes.php');
 
 $tura = new Tura();
 if($tura->getConnect()) {
-   
-    $box = $tura->selectBox();
-   
-    foreach ($box as $key => $value) {
-        $leiras[] = $tura->cut($value['leiras'], 200);
-    } 
+
+    $locations = $tura->selectLocations();
     
+    foreach ($locations as $key => $value) {
+        $id = $locations[$key]['helyszinId'];
+        $box[] = $tura->selectBoxLocation($id);
+        foreach ($box[$key] as $keyy => $valuee) {
+            $leiras[$key][$keyy] = $tura->cut($box[$key][$keyy]['leiras'], 200);
+        }
+    }
 }
