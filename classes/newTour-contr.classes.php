@@ -34,19 +34,19 @@ class NewTourContr extends NewTour
 
     public function errors()
     {
-        if($this->emptyInput() == false) {
+        if($this->emptyInput() === false) {
             $this->addError('empty', '*kérem, töltsön ki minden mezőt!');
         } else {
-            if($this->invalidName() == false) {
+            if($this->invalidName() === false) {
                 $this->addError('name', '*a túra neve csak betűket és számokat tartalmazhat');
             }
-            if($this->invalidImgName() == false) {
+            if($this->invalidImgName() === false) {
                 $this->addError('imgName', '*a kép címe csak betűket és számokat tartalmazhat');
             }
-            if($this->invalidHours() == false) {
+            if($this->invalidHours() === false) {
                 $this->addError('hours', '*a teljeítési idő számokat tartalmazhat');
             }
-            if($this->invalidLength() == false) {
+            if($this->invalidLength() === false) {
                 $this->addError('length', '*a teljeítési idő számokat tartalmazhat');
             }
         }
@@ -66,7 +66,7 @@ class NewTourContr extends NewTour
 
     private function invalidName()
     {
-        if(!preg_match(("/^[a-zA-Z0-9\-\ \,]*$/"), $this->name)) {
+        if(!preg_match(("/[a-zA-Z0-9\-\ \,]*/"), $this->name)) {
             $result = false;
         } else {
             $result = true;
@@ -76,7 +76,7 @@ class NewTourContr extends NewTour
 
     private function invalidImgName()
     {
-        if(!preg_match(("/^[a-zA-Z0-9\-\ \,]*$/"), $this->imgName)) {
+        if(!preg_match(("/[a-zA-Z0-9\-\ \,]*/"), $this->imgName)) {
             $result = false;
         } else {
             $result = true;

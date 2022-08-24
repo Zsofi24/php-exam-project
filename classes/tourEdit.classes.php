@@ -147,10 +147,10 @@ class tourEdit extends DB
         $statement5 = $this->prepareOne($insert5, $types5 , $params5);
         $statement5->execute();
 
-        $types3 = "siiii";
-        $params3 = [$postArray["turaNev"], $postArray["teljesitesIdo"], $postArray["turaHossz"], $postArray["turaSzint"], $postArray["turaTipus"]];
+        $types3 = "siiiii";
+        $params3 = [$postArray["turaNev"], $postArray["teljesitesIdo"], $postArray["turaHossz"], $postArray["turaSzint"], $postArray["turaTipus"], $postArray["lokacio"]];
         $insert3 = "UPDATE turak  SET nev = (?), teljesitesi_ido = (?), tura_hossz = (?), 
-        tura_szintek_id = (?), tura_tipusok_id = (?)
+        tura_szintek_id = (?), tura_tipusok_id = (?), tura_helyszinek_id = (?)
         WHERE id = $id";
         $statement3 = $this->prepare($insert3, $types3, $params3);
         $statement3->execute();

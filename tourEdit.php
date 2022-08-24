@@ -78,7 +78,7 @@ require_once('includes/tourEdit.inc.php');
         <input type="text" name="kepCim" value ="<?php echo $crudData['kepCim']?>">
 
         <label for="lokacio">Lokáció</label>
-        <select name="lokcaio">
+        <select name="lokacio">
         <?php foreach ($lokacio as $key) : ?>
                 <option value="<?php echo $key['id'] ?>"
                 <?php echo ($key['lokacio'] === $crudData['lokacio']) ?  "selected" : "" ?>>

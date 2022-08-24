@@ -1,7 +1,7 @@
 <?php
 class Crud extends DB
 {
-    private $header = ['ID', 'túranév', 'képnév', 'képcím', 'leírás'];
+    private $header = ['ID', 'túranév', 'országrész', 'képnév', 'leírás'];
 
     public function getHeader()
     {
@@ -11,8 +11,9 @@ class Crud extends DB
     public function selectCrudData() 
     {
         $conn = $this->getConnect();
-        $sql = "SELECT turak.id AS id, turak.nev as turanev, tura_kepek.kep_nev as kepnev, tura_kepek.kep_cim as kepcim, tura_leirasok.leiras as leiras
+        $sql = "SELECT turak.id AS id, turak.nev as turanev, tura_helyszinek.lokacio, tura_kepek.kep_nev as kepnev, tura_leirasok.leiras as leiras
         FROM turak
+        LEFT JOIN tura_helyszinek ON turak.tura_helyszinek_id = tura_helyszinek.id
         LEFT JOIN tura_kepek ON turak.tura_kepek_id = tura_kepek.id
         LEFT JOIN tura_leirasok ON turak.tura_leirasok_id = tura_leirasok.id";
         $stmt = $this->prepare($sql, "", []);
@@ -20,9 +21,9 @@ class Crud extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $name, $img, $imgName, $leiras);
+            $stmt->bind_result($id, $name, $lokacio, $img, $leiras);
             while ($stmt->fetch()) {
-                $result[] =['id' =>$id, 'turaNev'=>$name, 'kepNev'=>$img, 'kepCim'=>$imgName, 'leiras'=>$leiras];
+                $result[] =['id' =>$id, 'turaNev'=>$name, 'lokacio' => $lokacio, 'kepNev'=>$img,  'leiras'=>$leiras];
             }
             return $result;
         }
