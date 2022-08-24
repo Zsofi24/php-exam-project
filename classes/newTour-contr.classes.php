@@ -1,6 +1,6 @@
 <?php
 
-class NewTourContr extends ujTura
+class NewTourContr extends NewTour
 {
     private $name;
     private $type;
@@ -26,9 +26,9 @@ class NewTourContr extends ujTura
         $this->location = $location;
     }
 
-    public function insertNewTour() {
+    public function insertNewTours() {
         if(empty($this->errors)) {
-            $this->insertUjTura($this->text, $this->kepNev, $this->imgName, $this->name, $this->hours, $this->length, $this->location, $this->level, $this->type, $this->label);
+            $this->insertNewTour($this->text, $this->kepNev, $this->imgName, $this->name, $this->hours, $this->length, $this->location, $this->level, $this->type, $this->label);
         }
     }
 
@@ -66,7 +66,7 @@ class NewTourContr extends ujTura
 
     private function invalidName()
     {
-        if(!preg_match(("/^[a-zA-Z0-9- ]*$/"), $this->name)) {
+        if(!preg_match(("/^[a-zA-Z0-9\-\ \,]*$/"), $this->name)) {
             $result = false;
         } else {
             $result = true;
@@ -76,7 +76,7 @@ class NewTourContr extends ujTura
 
     private function invalidImgName()
     {
-        if(!preg_match(("/^[a-zA-Z0-9- ]*$/"), $this->imgName)) {
+        if(!preg_match(("/^[a-zA-Z0-9\-\ \,]*$/"), $this->imgName)) {
             $result = false;
         } else {
             $result = true;

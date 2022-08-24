@@ -3,7 +3,7 @@
     <div class="nav">
         <ul>
             <li><a href="index.php"><i class="fa-solid fa-person-hiking"></i></a></li>
-            <li><a href="turak.php" id='tura'>Túrák</a></li>
+            <li><a href="tours.php" id='tura'>Túrák</a></li>
             <li><a href="jelentkezes.php" id='jelentkezes'>Jelentkezés</a></li>
             <!-- <li><a href="#" id='contact'>Info</a></li> -->
         </ul>

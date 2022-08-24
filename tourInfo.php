@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php
-require_once 'includes/turainfo.inc.php';
+require_once 'includes/tourInfo.inc.php';
 ?>
 
 <!DOCTYPE html>

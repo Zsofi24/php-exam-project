@@ -32,7 +32,7 @@ require_once('includes/admin.inc.php');
 ?> 
    
 <div class="addNewTour">
-        <button><a href="ujTura.php">Új hozzáadása</a>
+        <button><a href="newTour.php">Új hozzáadása</a>
         </button>
 </div>
 
@@ -59,8 +59,8 @@ require_once('includes/admin.inc.php');
                                 <td><?php echo $value; ?> </td>
                         <?php endforeach ?>
                                 <td class="option" colspan="2">
-                                        <a class="edit-row" href="turaEdit.php?id=<?php echo $tableData[$i]['id']?>">Szerkeszt</a>
-                                        <a class="delete-row" href="turaDelete.php?id=<?php echo $tableData[$i]['id']?>">Töröl</a>
+                                        <a class="edit-row" href="tourEdit.php?id=<?php echo $tableData[$i]['id']?>">Szerkeszt</a>
+                                        <a class="delete-row" href="tourDelete.php?id=<?php echo $tableData[$i]['id']?>">Töröl</a>
                                 </td>
                         </tr>
 

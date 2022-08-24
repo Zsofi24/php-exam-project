@@ -1,8 +1,8 @@
 <?php
 require_once 'sql/DB.php';
-require_once 'classes/turainfo.classes.php';
+require_once 'classes/tourInfo.classes.php';
 
-$db = new TuraInfo();
+$db = new TourInfo();
 if($db->getConnect()) {
 
     $nev = $db->selectNev($_GET['id']);

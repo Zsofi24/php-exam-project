@@ -1,6 +1,6 @@
 <?php
 
-class UjTura extends DB
+class NewTour extends DB
 {
     public function selectTipusok()
     {
@@ -70,7 +70,7 @@ class UjTura extends DB
         }
     }
 
-    public function insertUjTura($text, $kepNev, $imgName, $name, $hours, $length, $location, $level, $type, $label  )
+    public function insertNewTour($text, $kepNev, $imgName, $name, $hours, $length, $location, $level, $type, $label  )
     {
         $conn = $this->getConnect();
         

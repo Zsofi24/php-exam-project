@@ -1,15 +1,15 @@
 <?php
 
 require_once('sql/DB.php');
-require_once('classes/turaEdit.classes.php');
+require_once('classes/tourEdit.classes.php');
 $status = "";
 if(isset($_POST['edit']))
 {
     $id = $_POST['getid'];
-    $turaEdit = new turaEdit();
+    $tourEdit = new tourEdit();
     $_POST['kepNev'] = $_FILES['kepFile']['name'];
-    $update = $turaEdit->updateTura($_POST, $id);
+    $update = $tourEdit->updateTura($_POST, $id);
     $status = "success";
-    header("Location: turaEdit.php?id=$id");
+    header("Location: tourEdit.php?id=$id");
 
 } 

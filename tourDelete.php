@@ -4,7 +4,7 @@ require_once('includes/adminAut.inc.php');
 ?>
 
 <?php
-include_once ('includes/turaDelete.inc.php');
+include_once ('includes/tourDelete.inc.php');
 require_once('templates/nav.php');
 ?>
 

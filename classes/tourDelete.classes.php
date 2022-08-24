@@ -1,6 +1,6 @@
 <?php
 
-class turaDelete extends DB
+class tourDelete extends DB
 {
     public function deleteData($id)
     {

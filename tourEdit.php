@@ -18,20 +18,20 @@ require_once('includes/adminAut.inc.php');
 <?php
 require_once('templates/nav.php');
 require_once('sql/DB.php');
-require_once('classes/turaEdit.classes.php');
-$turaEdit = new turaEdit();
+require_once('classes/tourEdit.classes.php');
+$tourEdit = new tourEdit();
 if(isset($_GET['id'])) {
 
     $GETid = $_GET['id'];
-    $crudData = $turaEdit->selectEditData($_GET['id']);
-    $tipusok = $turaEdit->selectTipusok();
-    $szintek = $turaEdit->selectSzintek();
-    $lokacio = $turaEdit->selectLokaciok();
-    $cimke = $turaEdit->selectCimkek();
-    $cimkeID = $turaEdit->selectCimkeID($_GET['id']);
+    $crudData = $tourEdit->selectEditData($_GET['id']);
+    $tipusok = $tourEdit->selectTipusok();
+    $szintek = $tourEdit->selectSzintek();
+    $lokacio = $tourEdit->selectLokaciok();
+    $cimke = $tourEdit->selectCimkek();
+    $cimkeID = $tourEdit->selectCimkeID($_GET['id']);
 }
 
-require_once('includes/turaEdit.inc.php');
+require_once('includes/tourEdit.inc.php');
 
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 
-class turaEdit extends DB
+class tourEdit extends DB
 {
     public function selectEditData($id) 
     {

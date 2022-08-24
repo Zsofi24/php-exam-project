@@ -367,35 +367,34 @@ form.newTour input[type=submit] {
 }
 
 .toursH1 {
-    text-align: left;
     font-size: 50px;
     color:#5d302b;
+    padding: 20px 40px;
 }
 
 .box {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: grey;
-    background-image: url('../img/box2.jpg');
-    z-index: -100;
     width: 100%;
-    background-position: center;
-    background-size: cover;
+    
 }
 
 section.tura {
     background-color: #7e570c;
+    background-image: url('../img/form1.jpg');
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 25%;
     margin: 10px;
     padding: 20px;
     border-radius: 20px;
 }
 
 section.tura:hover {
-    filter: drop-shadow(8px 8px 10px gray) sepia(100%) contrast(160%);
+    filter: drop-shadow(8px 8px 10px rgb(72, 72, 72)) grayscale(80%) ;
 }
 
 a.bigLink {
@@ -413,8 +412,14 @@ section.tura a.smallLink {
     border-radius: 20px;
 }
 
+section.tura a.smallLink:hover {
+    background-color: white;
+    color: black;
+}
+
 section.tura .img img{
     width: 100%;
+    height: 30vh;
     border-radius: 20px;
 }
 
@@ -422,6 +427,8 @@ section.tura h1 {
     font-size: 30px;
     margin: 12px 0;
     color: black;
+    height: 10vh;
+    text-align: center;
 }
 
 section.tura p {
@@ -430,6 +437,7 @@ section.tura p {
     background-color: #d7c8bf;
     border-radius: 20px;
     padding: 10px;
+    height: 30vh;
 }
 div.link-jelentkezes {
     margin: 30px 0;

@@ -1,7 +1,7 @@
 <?php
 
 require_once ('sql/DB.php');
-require_once ('classes/turak.classes.php');
+require_once ('classes/tours.classes.php');
 
 $tura = new Tura();
 if($tura->getConnect()) {

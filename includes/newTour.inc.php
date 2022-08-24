@@ -1,11 +1,11 @@
 <?php
 require_once('sql/DB.php');
 require_once('classes/crud.classes.php');
-require_once ('classes/ujTura.classes.php');
+require_once ('classes/newTour.classes.php');
 require_once ('classes/newTour-contr.classes.php');
 
 
-$data = new ujTura();
+$data = new NewTour();
 if($data->getConnect()) {
 
     $lokacio = $data->selectLokaciok();
@@ -43,7 +43,7 @@ if(isset($_POST["submit"])) {
             if (empty($errors)) {
                $status = "success";
                 $kepNev = $_FILES['kepFile']['name'];
-                $insert = $data->insertUjTura($text, $kepNev, $imgName, $name, $hours, $length, $location, $level, $type, $label);
+                $insert = $data->insertNewTour($text, $kepNev, $imgName, $name, $hours, $length, $location, $level, $type, $label);
         
                 header('Location: admin.php');
             } else {

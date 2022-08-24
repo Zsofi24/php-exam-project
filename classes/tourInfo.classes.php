@@ -1,6 +1,6 @@
 <?php
 
-class TuraInfo extends DB 
+class TourInfo extends DB 
 {
 
     public function selectNev($id) 
