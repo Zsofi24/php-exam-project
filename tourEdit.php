@@ -35,7 +35,7 @@ require_once('includes/tourEdit.inc.php');
 
 ?>
 
-    <a href="admin.php">Vissza</a>
+    <a href="admin.php?p=1">Vissza</a>
     <div>
         <?php if($status === "success"): ?>
             <h1><?php echo 'siker' ?></h1>

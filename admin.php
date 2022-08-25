@@ -30,12 +30,15 @@ require_once('includes/adminAut.inc.php');
 require_once('templates/nav.php');
 require_once('includes/admin.inc.php');
 ?> 
+
+<div class="container-admin">
    
 <div class="addNewTour">
-        <button><a href="newTour.php">Új hozzáadása</a>
+        <button><a href="newTour.php">+ Új hozzáadása</a>
         </button>
 </div>
 
+<div class="table-container">
 <table class="crud-table">
         <thead>
                 <tr>
@@ -73,6 +76,13 @@ require_once('includes/admin.inc.php');
                         endfor
                 ?>
         </tbody>
-</table>  
+</table> 
+</div> 
+
+<div class="pager">
+        <?php echo $pager ?>
+</div>
+</div>
+
 </body>
 </html>

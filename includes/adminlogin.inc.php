@@ -15,7 +15,7 @@ if(isset($_POST["adminsubmit"])) {
     $errors = $login->errors();
     
     if(empty($errors)) {
-        header('Location: admin.php');
+        header('Location: admin.php?p=1');
     } else {
         $status = 'loginerror';
     }

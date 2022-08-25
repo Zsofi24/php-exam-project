@@ -6,7 +6,7 @@
 
 body, html {
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .nav-container {
@@ -511,22 +511,58 @@ div.link-jelentkezes a {
 
 /* admin crud */
 
-table.crud-table {
-    width: 70%;
-    margin: 40px auto;
+.container-admin {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
 }
+
+.addnewTour {
+    height: 10%;
+}
+
+div.addNewTour button {
+    background-color: #9b9b0f;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+div.addNewTour button a {
+    text-decoration: none;
+    color: rgb(42, 30, 30);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.pager {
+    height: 10%;
+ }
+
+div.table-container table.crud-table {
+    width: 70%;
+    border-spacing: 6px;
+    margin: 0 auto;
+}
+
+/* table.crud-table tr {
+    overflow: hidden;
+    height: 7%;
+    white-space: nowrap;
+} */
 
 table.crud-table tr th {
     border: 1px solid black;
     font-size: 40px;
-    padding: 6px;
     background-color: #422720;
     color: white;
+    padding: 8px;
 }
 
 table.crud-table tr td {
     border: 1px solid black;
-    margin: 10px 0;
+    padding: 6px;
+    
 }
 
 table.crud-table td.option a.edit-row{
@@ -541,6 +577,10 @@ table.crud-table td.option a.delete-row{
     color: red;
     background-color: #d7bcac;
     font-size: 20px;
+}
+
+.pager {
+    margin: 20px;
 }
 
 /* footer */
