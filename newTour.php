@@ -98,5 +98,7 @@ require_once 'includes/newTour.inc.php';
         <input type="submit" value="hozzáad" name="submit">
     </form>
 </div>
-</body>
-</html>
+
+<?php
+require_once('templates/footer.php');
+?>

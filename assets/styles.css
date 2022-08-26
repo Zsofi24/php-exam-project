@@ -16,12 +16,53 @@ body, html {
     justify-content: space-between;
     width: 100%;
     background-image: linear-gradient(to right, #5c281a, #5e373b, #575c6a, #5791a6, #2a3039 );
+    overflow: hidden;
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+}
+
+.dropdown {
+    overflow: hidden;
+    width: 100px;
+}
+
+.dropdown .dropbtn {
+    font-size: 22px;
+    border: none;
+    outline: none;
+    margin: 0;
+    background-color: inherit;
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+}
+
+.dropdown-content a {
+    display: block;
+    text-align: left;
+    color: black;
+    font-size: 22px;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #0c1b20;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .nav ul {
@@ -64,12 +105,13 @@ body, html {
 .nav ul li.regist a {
     text-decoration: none;
     color: #422720;
+    width: 20px;
 }
 
 .nav ul li a i.fa-solid {
     color: white;
     font-size: 27px;
-    margin: 5px;
+   
 }
 
 .picture {
@@ -479,10 +521,6 @@ div.link-jelentkezes a {
 .back-button button a:hover {
     color: orange;
 }
-
-
-
-
 
 .container-turainfo {
     margin: 0 auto;

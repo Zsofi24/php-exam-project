@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php
-require_once 'includes/tours.inc.php';
+require_once('includes/tours.inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,14 +19,14 @@ require_once 'includes/tours.inc.php';
 <body>
 
 <?php
-include_once 'templates/nav.php';
+require_once('templates/nav.php');
 ?>
 
 <?php foreach ($locations as $key => $value): ?>
     <?php $id = $locations[$key]['helyszinId'] ?>
     <?php $name = $locations[$key]['helyszinNev'] ?>
     <div class="tours">
-    <h1 class="toursH1"><?php echo $name?></h1>
+    <h1 class="toursH1" id="<?php echo $id ?>"><?php echo $name?></h1>
     </div>
 
     
@@ -46,10 +46,6 @@ include_once 'templates/nav.php';
     </div>
 
 <?php endforeach ?>
-
-
-
-
 
 <?php
 include_once 'templates/footer.php';

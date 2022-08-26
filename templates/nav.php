@@ -1,11 +1,22 @@
+<?php
+require_once('includes/nav.inc.php');
+?>
+
 <nav>
     <div class="nav-container">
     <div class="nav">
         <ul>
             <li><a href="index.php"><i class="fa-solid fa-person-hiking"></i></a></li>
-            <li><a href="tours.php" id='tura'>Túrák</a></li>
+            <!-- <li><a href="tours.php" id='tura'>Túrák</a></li> -->
             <li><a href="jelentkezes.php" id='jelentkezes'>Jelentkezés</a></li>
-            <!-- <li><a href="#" id='contact'>Info</a></li> -->
+            <div class="dropdown">
+                <li><button class="dropbtn"><a href="tours.php">Túrák</a></button></li>
+                <div class="dropdown-content">
+                    <?php foreach ($locations as $key => $value) : ?>
+                        <a href="tours.php#<?php echo $locations[$key]['helyszinId']?>"><?php echo $locations[$key]['helyszinNev']?></a>
+                    <?php endforeach ?>
+                </div>
+            </div>
         </ul>
     </div>
     <div class="nav">

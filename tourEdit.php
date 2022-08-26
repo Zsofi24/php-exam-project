@@ -119,6 +119,3 @@ require_once('includes/tourEdit.inc.php');
 <?php
 require_once('templates/footer.php');
 ?>
-
-</body>
-</html>

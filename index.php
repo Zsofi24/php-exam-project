@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,17 +14,14 @@ session_start();
 <body>
 
 <?php
-
-include_once 'templates/nav.php';
-include_once 'templates/header.php';
-
+require_once('templates/nav.php');
+require_once('templates/header.php');
 ?>
 
 <div class="index-content">
 
-
 </div>
 
-
 <?php
-include_once 'templates/footer.php';
+require_once('templates/footer.php');
+?>
