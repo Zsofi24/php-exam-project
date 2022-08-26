@@ -1,9 +1,6 @@
 <?php
 session_start();
-?>
-
-<?php
-require_once 'includes/tourInfo.inc.php';
+require_once('includes/tourInfo.inc.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,8 +16,12 @@ require_once 'includes/tourInfo.inc.php';
 <body>
 
 <?php
-include_once 'templates/nav.php';
+include_once('templates/nav.php');
 ?>
+
+<div class="back-button">
+    <button><a href="tours.php"><i class="fa-solid fa-arrow-left-long"> Vissza</i></a></button>
+</div>
 
 <div class="container-turainfo">
     <div class="img-turainfo">

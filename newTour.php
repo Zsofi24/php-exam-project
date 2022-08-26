@@ -20,7 +20,9 @@ include_once 'templates/nav.php';
 require_once 'includes/newTour.inc.php';
 ?>
 
-<a href="admin.php">Vissza</a>
+<div class="back-button">
+    <button><a href="admin.php"><i class="fa-solid fa-arrow-left-long"> Vissza</i></a></button>
+</div>
 
 <?php if($status === 'success'): ?>
     <h1>Sikeresen hozzáadta az új túrát!</h1> 

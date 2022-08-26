@@ -1,6 +1,7 @@
 <?php
-include_once 'includes/adminlogin.inc.php';
-include_once 'templates/nav.php';
+session_start();
+require_once('includes/adminlogin.inc.php');
+require_once('templates/nav.php');
 ?>
 
 <!DOCTYPE html>

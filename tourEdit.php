@@ -19,9 +19,12 @@ require_once('includes/adminAut.inc.php');
 require_once('templates/nav.php');
 require_once('sql/DB.php');
 require_once('classes/tourEdit.classes.php');
-$tourEdit = new tourEdit();
-if(isset($_GET['id'])) {
+?>
 
+<?php
+$tourEdit = new tourEdit();
+
+if(isset($_GET['id'])) {
     $GETid = $_GET['id'];
     $crudData = $tourEdit->selectEditData($_GET['id']);
     $tipusok = $tourEdit->selectTipusok();
@@ -30,12 +33,16 @@ if(isset($_GET['id'])) {
     $cimke = $tourEdit->selectCimkek();
     $cimkeID = $tourEdit->selectCimkeID($_GET['id']);
 }
-
-require_once('includes/tourEdit.inc.php');
-
 ?>
 
-    <a href="admin.php?p=1">Vissza</a>
+<?php
+require_once('includes/tourEdit.inc.php');
+?>
+
+    <div class="back-button">
+        <button><a href="admin.php"><i class="fa-solid fa-arrow-left-long"> Vissza</i></a></button>
+    </div>
+
     <div>
         <?php if($status === "success"): ?>
             <h1><?php echo 'siker' ?></h1>
@@ -112,5 +119,6 @@ require_once('includes/tourEdit.inc.php');
 <?php
 require_once('templates/footer.php');
 ?>
+
 </body>
 </html>

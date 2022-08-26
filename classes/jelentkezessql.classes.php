@@ -5,7 +5,7 @@ class JelentkezesSql extends DB
     public function selectNev() 
     {
         $conn = $this->getConnect();
-        $sql = "SELECT nev FROM turak";
+        $sql = "SELECT nev FROM turak ORDER BY nev";
         $stmt = $this->prepareOne($sql, "", []);
         $stmt->execute();
         if ($stmt->error !== "") {
@@ -19,18 +19,17 @@ class JelentkezesSql extends DB
         }
     }
 
-    public function insertJelentkezes($postArray, $date)
+    public function insertJelentkezes($postArray)
     {
         $fieldArray = ['vezeteknev', 'keresztnev', 'email', 'telefonszam', 'tura_neve', 'fo', 'jelentkezes', 'jelentkezes_datuma'];
         $mysql = $this->getConnect();
-        $types = "sssiiiss";
+        $types = "sssssis";
         foreach ($postArray as $key => $value) {
             $params[] = $value;
         }
-            $params[] = $date;
-             $insert = "INSERT INTO tura_jelentkezes ($fieldArray[0], $fieldArray[1], $fieldArray[2], $fieldArray[3], $fieldArray[4], $fieldArray[5], $fieldArray[6], $fieldArray[7] ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
-             $statement = $this->prepare($insert, $types, $params);
-             $statement->execute();
+        $insert = "INSERT INTO tura_jelentkezes ($fieldArray[0], $fieldArray[1], $fieldArray[2], $fieldArray[3], $fieldArray[4], $fieldArray[5], $fieldArray[6], $fieldArray[7]  ) VALUES ( ?, ?, ?, ?, ?, ?, ?, NOW())";
+        $statement = $this->prepare($insert, $types, $params);
+        $statement->execute();
         
         $this->close();
     }

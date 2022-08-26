@@ -12,5 +12,5 @@ if(isset($_GET['p'])){
     $pager = $crud->pager($page, $dataCount, $countperpage=8);
 }else{
     $tableData = $crud->pageData(1);
-    $pager = $crud->pager($page, $dataCount, $countperpage=8);
+    $pager = $crud->pager(1, $dataCount, $countperpage=8);
 }

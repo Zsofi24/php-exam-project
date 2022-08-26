@@ -68,7 +68,7 @@ require_once('includes/jelentkezes.inc.php');
     <input type="number" placeholder="jelentkezők létszáma" id="fo" name="fo" min="1" max="40" value="<?= $_POST['fo'] ?? ''?>">
     <div class="error">
         <?php echo $errors['fo'] ?? '' ?>
-      </div>
+    </div>
     <input type="submit" value="jelentkezés" id="submit" name="submit">
 </form>
 
