@@ -116,7 +116,7 @@ body, html {
 
 .picture {
     height: 65vh;
-    background-image: url('../img/header22.jpg');
+    background-image: url('../img/header2.jpg');
     filter: brightness(150%) contrast(130%);
     width: 100%;
     background-position: center;
@@ -163,7 +163,7 @@ body, html {
 .form-jelentkezes form input {
     height: 2rem;
     font-size: 1.25rem;
-    background-color: #f0ffc4;
+    background-color: #dad7d7;
     padding: 0.313rem;
     margin: 0.313rem;
     border: 0.125rem solid white;
@@ -173,7 +173,7 @@ body, html {
 .form-jelentkezes form select {
     height: 2rem;
     font-size: 1.25rem;
-    background-color: #f0ffc4;
+    background-color: #dad7d7;
     padding: 0.313rem;
     margin: 0.313rem;
 
@@ -542,7 +542,7 @@ div.link-jelentkezes a {
 .container-turainfo .cimke {
     display: flex;
     margin: 10px 0;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .container-turainfo .cimke div {
@@ -669,8 +669,22 @@ footer {
     flex-direction: column;
     background-color: #d7bcac;
     font-size: 20px;
-    padding: 5px;
+    padding: 10px;
     margin: 10px;
+}
+
+.footer-info h3 {
+    margin: 0 0 5px 0;
+}
+
+.footer-info .connect-box {
+    display: flex;
+    margin: 5px 0;
+}
+
+.footer-info .connect-box a {
+    color: black;
+    text-decoration: none;
 }
 
 footer .admin-login a {

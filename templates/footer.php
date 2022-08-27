@@ -1,9 +1,15 @@
 <footer>
     <div class="footer-info">
-        <h3>Kapcsolat</h3>
-        <p>email:</p>
-        <p>telefon:</p>
-        <p>cím</p>
+        <h3>Kapcsolat</h3>  
+        <div class="connect-box">  
+            <i class="fa-solid fa-at"></i><p>info@turazzvelunk.frt</p>
+        </div>
+        <div class="connect-box">  
+            <i class="fa-solid fa-phone"></i><p><a href="tel:-3910011111">(-39)1-011-1111</a></p>
+        </div>
+        <div class="connect-box">  
+            <i class="fa-solid fa-location-dot"></i><p></p>
+        </div>
     </div>
     <div class="footer-content">
         <h3>Túrázzon velünk!</h3>
