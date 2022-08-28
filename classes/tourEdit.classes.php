@@ -117,6 +117,7 @@ class tourEdit extends DB
         }
     }
 
+    //tranzakció kezelés
     public function updateTura(array $postArray, $id)
     {
         $conn = $this->getConnect();

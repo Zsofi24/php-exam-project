@@ -9,8 +9,9 @@ $dataCount = $crud->dataCount();
 if(isset($_GET['p'])){
     $page = (int)$_GET['p'];
     $tableData = $crud->pageData($page);
-    $pager = $crud->pager($page, $dataCount, $countperpage=8);
+    $pagecount = $crud->pager($page, $dataCount, $countperpage=8);
 }else{
+    $page = 1;
     $tableData = $crud->pageData(1);
-    $pager = $crud->pager(1, $dataCount, $countperpage=8);
+    $pagecount = $crud->pager(1, $dataCount, $countperpage=8);
 }

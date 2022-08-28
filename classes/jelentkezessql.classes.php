@@ -5,15 +5,15 @@ class JelentkezesSql extends DB
     public function selectNev() 
     {
         $conn = $this->getConnect();
-        $sql = "SELECT nev FROM turak ORDER BY nev";
+        $sql = "SELECT id, nev FROM turak ORDER BY nev";
         $stmt = $this->prepareOne($sql, "", []);
         $stmt->execute();
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($nev);
+            $stmt->bind_result($id, $nev);
             while ($stmt->fetch()) {
-                $result[]= $nev;
+                $result[]= [$id, $nev];
             }
             return $result;
         }

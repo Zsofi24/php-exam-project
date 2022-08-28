@@ -149,17 +149,9 @@ class Crud extends DB
    
     //átírni, ne itt legyen a html
     public function pager($page, $datacount, $countperpage=10){
-        $pagerString = '';
         $pagecount = ceil($datacount/$countperpage);
-        for($i = 1; $i<=$pagecount; $i++){
-            if($i == $page){
-                //jelöli az aktuális oldalt
-                $pagerString .= '<a href="#"> _ ' . $i . ' _ </a>';
-            }else{
-                $pagerString .= '<a href="admin.php?p=' . $i . '">' . $i . '</a>';
-            }
-        }
-        return $pagerString;
+        
+        return $pagecount;
     }
     
     public function pageData(int $page, int $count = 8){

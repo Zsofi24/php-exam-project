@@ -42,10 +42,12 @@ require_once('includes/tourEdit.inc.php');
     <div class="back-button">
         <button><a href="admin.php"><i class="fa-solid fa-arrow-left-long"> Vissza</i></a></button>
     </div>
-
+    
     <div>
         <?php if($status === "success"): ?>
-            <h1><?php echo 'siker' ?></h1>
+            <h1>Szerkesztés sikeres</h1>
+        <?php elseif($status === "error"): ?>
+            <h1>Szerkesztés nem sikeres</h1>
         <?php endif ?>
     </div>
     

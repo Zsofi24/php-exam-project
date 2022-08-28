@@ -80,7 +80,19 @@ require_once('includes/admin.inc.php');
 </div> 
 
 <div class="pager">
-        <?php echo $pager ?>
+        <?php 
+        for($i = 1; $i<=$pagecount; $i++){
+            if($i == $page){
+                ?>
+                <a href="#"> _ <?php echo $i ?> _ </a>
+                <?PHP
+            }else{
+                ?>
+                <a href="admin.php?p=<?php echo $i ?>"><?php echo $i ?></a>
+                <?php
+            }
+        }
+        ?>
 </div>
 </div>
 

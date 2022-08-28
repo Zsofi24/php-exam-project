@@ -54,7 +54,9 @@ require_once('includes/jelentkezes.inc.php');
     <label for="tura">túra</label>
     <select id="tura" name="tura">
         <?php foreach ($nev as $value): ?>
-          <option value="<?php echo $value ?>"><?php echo $value ?></option>
+          <?php $attrib = $_GET['id'] == $value[0] ? "selected" : "" ?>
+          <option <?php echo $attrib ?> value="<?php echo $value[0] ?>"><?php echo $value[1] ?></option>
+          
         <?php endforeach ?>
     </select>
     <!-- <label for="idopont">Időpont</label>

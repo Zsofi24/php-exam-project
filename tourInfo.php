@@ -48,7 +48,7 @@ include_once('templates/nav.php');
         </article>
     </div>
     <div class="link-jelentkezes">
-    <a href="jelentkezes.php" >Jelentkezés</a>
+    <a href="jelentkezes.php?id=<?php echo $_GET['id']?>" >Jelentkezés</a>
     </div>
 </div>
 
