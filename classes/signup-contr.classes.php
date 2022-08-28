@@ -7,13 +7,15 @@ class SignupContr extends Signup
     private $pwdRepeat;
     private $email;
     public $errors = [];
+    private $date;
 
-    public function __construct($uid, $pwd, $pwdRepeat, $email)
+    public function __construct($uid, $pwd, $pwdRepeat, $email, $date)
     {
         $this->uid = $uid;
         $this->pwd = $pwd;
         $this->pwdRepeat = $pwdRepeat;
         $this->email = $email;
+        $this->date = $date;
     }
 
     public function errors()
@@ -43,7 +45,7 @@ class SignupContr extends Signup
 
     public function signupUser() {
         if(empty($this->errors)) {
-            $this->setUser($this->uid, $this->pwd, $this->email);
+            $this->setUser($this->uid, $this->pwd, $this->email, $this->date);
         }
     }
 

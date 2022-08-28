@@ -1,10 +1,10 @@
 <?php
-include_once 'templates/nav.php';
-include_once 'includes/signup.inc.php';
+require_once('templates/nav.php');
+require_once('includes/signup.inc.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,5 +55,5 @@ include_once 'includes/signup.inc.php';
     </div>
 
 <?php
-include_once 'templates/footer.php';
+require_once('templates/footer.php');
 ?>

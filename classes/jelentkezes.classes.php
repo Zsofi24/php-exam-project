@@ -35,7 +35,7 @@ class JelentkezesValidator {
         if(empty($val)){
         $this->addError('vezeteknev', 'Kérem, adja meg a vezetéknevét!');
         } else {
-        if(!preg_match('/^[a-zA-Z]+$/', $val)){
+        if(!preg_match('/^\p{L}+$/ui', $val)){
             $this->addError('vezeteknev','Vezetéknév csak betűket tartalmazhat!');
         }
         }
@@ -48,7 +48,7 @@ class JelentkezesValidator {
         if(empty($val)){
         $this->addError('keresztnev', 'Kérem, adja meg a keresztnevét!');
         } else {
-        if(!preg_match('/^[a-zA-Z]+$/', $val)){
+        if(!preg_match('/^\p{L}+$/ui', $val)){
             $this->addError('keresztnev','Keresztnév csak betűket tartalmazhat!');
         }
         }

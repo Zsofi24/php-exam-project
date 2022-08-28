@@ -18,7 +18,8 @@ if(isset($_POST['submit'])){
     $errors = $validation->validateForm();
       
     if(empty($errors)) {
-      $insert = $sql->insertJelentkezes($_POST);
+      $date = date("Y-m-d H:i:s");
+      $insert = $sql->insertJelentkezes($_POST, $date);
       $status = 'success';
     } else {
       $status = 'validationerror';

@@ -8,11 +8,13 @@ if(isset($_POST["submit"])) {
     $pwd = $_POST["pwd"];
     $pwdRepeat = $_POST["pwdrepeat"];
     $email = $_POST["email"];
+    $date = date("Y-m-d H:i:s");
 
-    include "classes/dbh.classes.php";    
-    include "classes/signup.classes.php";
-    include "classes/signup-contr.classes.php";
-    $signup = new SignupContr($uid, $pwd, $pwdRepeat, $email);
+    require_once('classes/dbh.classes.php');    
+    require_once('classes/signup.classes.php');
+    require_once('classes/signup-contr.classes.php');
+
+    $signup = new SignupContr($uid, $pwd, $pwdRepeat, $email, $date);
 
     $errors = $signup->errors();
     
