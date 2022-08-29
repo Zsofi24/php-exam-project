@@ -19,9 +19,9 @@ if(isset($_POST["adminsubmit"])) {
     $uid = $_POST["uid"];
     $pwd = $_POST["pwd"];
         
-    include "classes/dbh.classes.php";    
-    include "classes/adminLogin.classes.php";
-    include "classes/adminLogin-contr.classes.php";
+    require_once('classes/dbh.classes.php');    
+    require_once('classes/adminLogin.classes.php');
+    require_once('classes/adminLogin-contr.classes.php');
     $login = new LoginContr($uid, $pwd);
         
     $errors = $login->errors();

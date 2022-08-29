@@ -1,8 +1,8 @@
 <?php
 
-class JelentkezesSql extends DB 
+class ApplySql extends DB 
 {
-    public function selectNev() 
+    public function selectName() 
     {
         $conn = $this->getConnect();
         $sql = "SELECT id, nev FROM turak ORDER BY nev";
@@ -19,7 +19,7 @@ class JelentkezesSql extends DB
         }
     }
 
-    public function insertJelentkezes($postArray, $date)
+    public function insertApply($postArray, $date)
     {
         $fieldArray = ['vezeteknev', 'keresztnev', 'email', 'telefonszam', 'tura_neve', 'fo', 'jelentkezes', 'jelentkezes_datuma'];
         $mysql = $this->getConnect();

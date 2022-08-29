@@ -1,6 +1,6 @@
 <?php
 
-class Tura extends DB
+class Tour extends DB
 {
     public function selectBox()
     {
@@ -14,9 +14,9 @@ class Tura extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $name, $img, $imgName, $leiras);
+            $stmt->bind_result($id, $name, $img, $imgName, $descr);
             while ($stmt->fetch()) {
-                $box[] =['turaId'=> $id, 'turaNev'=>$name, 'kepNev'=>$img, 'kepCim'=>$imgName, 'leiras'=>$leiras];
+                $box[] =['turaId'=> $id, 'turaNev'=>$name, 'kepNev'=>$img, 'kepCim'=>$imgName, 'leiras'=>$descr];
             }
             return $box;
         }
@@ -37,9 +37,9 @@ class Tura extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $name, $img, $imgName, $leiras, $locationId, $locationName);
+            $stmt->bind_result($id, $name, $img, $imgName, $descr, $locationId, $locationName);
             while ($stmt->fetch()) {
-                $box[] =['turaId'=>$id, 'turaNev'=>$name, 'kepNev'=>$img, 'kepCim'=>$imgName, 'leiras'=>$leiras, 'helyszinId'=>$locationId, 'helyszinNev'=>$locationName];
+                $box[] =['turaId'=>$id, 'turaNev'=>$name, 'kepNev'=>$img, 'kepCim'=>$imgName, 'leiras'=>$descr, 'helyszinId'=>$locationId, 'helyszinNev'=>$locationName];
             }
             return $box;
         }

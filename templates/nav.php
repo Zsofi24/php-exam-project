@@ -8,7 +8,7 @@ require_once('includes/nav.inc.php');
         <ul>
             <li><a href="index.php"><i class="fa-solid fa-person-hiking"></i></a></li>
             <!-- <li><a href="tours.php" id='tura'>Túrák</a></li> -->
-            <li><a href="jelentkezes.php" id='jelentkezes'>Jelentkezés</a></li>
+            <li><a href="apply.php" id='jelentkezes'>Jelentkezés</a></li>
             <div class="dropdown">
                 <li><button class="dropbtn"><a href="tours.php">Túrák</a></button></li>
                 <div class="dropdown-content">
@@ -39,9 +39,5 @@ require_once('includes/nav.inc.php');
         ?>
         </ul>
     </div>
-</nav>
-
-
-
-    
+</nav>    
   

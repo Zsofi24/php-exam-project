@@ -2,7 +2,7 @@
 
 class NewTour extends DB
 {
-    public function selectTipusok()
+    public function selectTypes()
     {
         $conn = $this->getConnect();
         $sql = "SELECT id, tura_tipus FROM tura_tipusok";
@@ -11,15 +11,15 @@ class NewTour extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $tipus);
+            $stmt->bind_result($id, $type);
             while ($stmt->fetch()) {
-                $result[] = ['id'=> $id, 'tipus' => $tipus];
+                $result[] = ['id'=> $id, 'tipus' => $type];
             }
             return $result;
         }
     }
 
-    public function selectSzintek()
+    public function selectLevels()
     {
         $conn = $this->getConnect();
         $sql = "SELECT id, tura_szintek FROM tura_szintek";
@@ -28,15 +28,15 @@ class NewTour extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $szint);
+            $stmt->bind_result($id, $level);
             while ($stmt->fetch()) {
-                $result[] = ['id'=> $id, 'szint' => $szint];
+                $result[] = ['id'=> $id, 'szint' => $level];
             }
             return $result;
         }
     }
 
-    public function selectLokaciok()
+    public function selectLocations()
     {
         $conn = $this->getConnect();
         $sql = "SELECT id, lokacio FROM tura_helyszinek";
@@ -45,15 +45,15 @@ class NewTour extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $lokacio);
+            $stmt->bind_result($id, $location);
             while ($stmt->fetch()) {
-                $result[] = ['id'=> $id, 'lokacio' => $lokacio];
+                $result[] = ['id'=> $id, 'lokacio' => $location];
             }
             return $result;
         }
     }
 
-    public function selectCimkek()
+    public function selectLabels()
     {
         $conn = $this->getConnect();
         $sql = "SELECT id, cimke_nev FROM tura_cimkek";
@@ -62,9 +62,9 @@ class NewTour extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $cimke);
+            $stmt->bind_result($id, $label);
             while ($stmt->fetch()) {
-                $result[] = ['id'=> $id, 'cimke' => $cimke];
+                $result[] = ['id'=> $id, 'cimke' => $label];
             }
             return $result;
         }

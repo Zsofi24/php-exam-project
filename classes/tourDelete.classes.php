@@ -1,6 +1,6 @@
 <?php
 
-class tourDelete extends DB
+class TourDelete extends DB
 {
     public function deleteData($id)
     {

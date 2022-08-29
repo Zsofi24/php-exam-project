@@ -1,17 +1,17 @@
 <?php
 require_once('sql/DB.php');
 require_once('classes/crud.classes.php');
-require_once ('classes/newTour.classes.php');
-require_once ('classes/newTour-contr.classes.php');
+require_once('classes/newTour.classes.php');
+require_once('classes/newTour-contr.classes.php');
 
 
 $data = new NewTour();
 if($data->getConnect()) {
 
-    $lokacio = $data->selectLokaciok();
-    $szint = $data->selectSzintek();
-    $tipus = $data->selectTipusok();
-    $cimke = $data->selectCimkek();
+    $lokacio = $data->selectLocations();
+    $szint = $data->selectLevels();
+    $tipus = $data->selectTypes();
+    $cimke = $data->selectLabels();
 
 }
 

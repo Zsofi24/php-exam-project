@@ -1,16 +1,16 @@
 <?php
-require_once 'sql/DB.php';
-require_once 'classes/tourInfo.classes.php';
+require_once('sql/DB.php');
+require_once('classes/tourInfo.classes.php');
 
 $db = new TourInfo();
 if($db->getConnect()) {
 
-    $nev = $db->selectNev($_GET['id']);
-    $leiras = $db->selectLeiras($_GET['id']);
-    $kep = $db->selectKep($_GET['id']);
-    $lokacio = $db->selectLokacio($_GET['id']);
-    $cimke = $db->selectCimke($_GET['id']);
-    $idohossz = $db->selectIdoHossz($_GET['id']);
-    $szinttipus = $db->selectSzintTipus($_GET['id']);
+    $nev = $db->selectName($_GET['id']);
+    $leiras = $db->selectDescr($_GET['id']);
+    $kep = $db->selectImg($_GET['id']);
+    $lokacio = $db->selectLocation($_GET['id']);
+    $cimke = $db->selectLabel($_GET['id']);
+    $idohossz = $db->selectTimeLength($_GET['id']);
+    $szinttipus = $db->selectLevelType($_GET['id']);
 
 }

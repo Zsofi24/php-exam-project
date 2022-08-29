@@ -3,7 +3,7 @@
 class TourInfo extends DB 
 {
 
-    public function selectNev($id) 
+    public function selectName($id) 
     {
         $conn = $this->getConnect();
         $sql = "SELECT nev FROM turak WHERE id = $id";
@@ -12,15 +12,15 @@ class TourInfo extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($nev);
+            $stmt->bind_result($name);
             while ($stmt->fetch()) {
-                $result= $nev;
+                $result= $name;
             }
             return $result;
         }
     }
 
-    public function selectLeiras($id) 
+    public function selectDescr($id) 
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_leirasok.leiras
@@ -32,15 +32,15 @@ class TourInfo extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($leiras);
+            $stmt->bind_result($descr);
             while ($stmt->fetch()) {
-                $result= $leiras;
+                $result= $descr;
             }
             return $result;
         }
     }
 
-    public function selectKep($id) 
+    public function selectImg($id) 
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_kepek.kep_nev, tura_kepek.kep_cim
@@ -52,15 +52,15 @@ class TourInfo extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($kepnev, $kepcim);
+            $stmt->bind_result($name, $title);
             while ($stmt->fetch()) {
-                $result= [$kepnev, $kepcim];
+                $result= [$name, $title];
             }
             return $result;
         }
     }
 
-    public function selectCimke($id) 
+    public function selectLabel($id) 
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_cimkek.cimke_nev
@@ -73,15 +73,15 @@ class TourInfo extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($cimkek);
+            $stmt->bind_result($label);
             while ($stmt->fetch()) {
-                $result[]= $cimkek;
+                $result[]= $label;
             }
             return $result;
         }
     }
 
-    public function selectLokacio($id) 
+    public function selectLocation($id) 
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_helyszinek.lokacio FROM turak
@@ -92,15 +92,15 @@ class TourInfo extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($lokacio);
+            $stmt->bind_result($location);
             while ($stmt->fetch()) {
-                $result= $lokacio;
+                $result= $location;
             }
             return $result;
         }
     }
 
-    public function selectIdoHossz($id)
+    public function selectTimeLength($id)
     {
         $conn = $this->getConnect();
         $sql = "SELECT turak.teljesitesi_ido, turak.tura_hossz
@@ -111,15 +111,15 @@ class TourInfo extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($ido, $hossz);
+            $stmt->bind_result($time, $length);
             while ($stmt->fetch()) {
-                $result= ['ido'=>$ido, 'hossz'=>$hossz];
+                $result= ['ido'=>$time, 'hossz'=>$length];
             }
             return $result;
         }
     }
 
-    public function selectSzintTipus($id)
+    public function selectLevelType($id)
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_szintek.tura_szintek, tura_tipusok.tura_tipus
@@ -132,9 +132,9 @@ class TourInfo extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($szint, $tipus);
+            $stmt->bind_result($level, $type);
             while ($stmt->fetch()) {
-                $result= ['szint'=>$szint, 'tipus'=>$tipus];
+                $result= ['szint'=>$level, 'tipus'=>$type];
             }
             return $result;
         }

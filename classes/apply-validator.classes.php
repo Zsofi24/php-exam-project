@@ -1,10 +1,10 @@
 <?php
 
-class JelentkezesValidator {
+class ApplyValidator {
 
     private $data;
     private $errors = [];
-    private static $fields = ['vezeteknev', 'keresztnev', 'email', 'telefon', 'fo'];
+    private static $fields = ['lastname', 'firstname', 'email', 'phone', 'people'];
 
     public function __construct($post_data)
     {
@@ -20,36 +20,36 @@ class JelentkezesValidator {
             }
           }
 
-        $this->validateVezeteknev();
-        $this->validateKeresztnev();
+        $this->validateFirstname();
+        $this->validateLastname();
         $this->validateEmail();
-        $this->validateTelefon();
-        $this->validateFo();
+        $this->validatePhone();
+        $this->validatePeople();
         return $this->errors;
     }
 
-    private function validateVezeteknev()
+    private function validateLastname()
     {
-        $val = trim($this->data['vezeteknev']);
+        $val = trim($this->data['lastname']);
 
         if(empty($val)){
-        $this->addError('vezeteknev', 'Kérem, adja meg a vezetéknevét!');
+        $this->addError('lastname', 'Kérem, adja meg a vezetéknevét!');
         } else {
-        if(!preg_match('/^\p{L}+$/ui', $val)){
-            $this->addError('vezeteknev','Vezetéknév csak betűket tartalmazhat!');
+        if(!preg_match("/^\p{L}+$/ui", $val)){
+            $this->addError('lastname','Vezetéknév csak betűket tartalmazhat!');
         }
         }
     }
 
-    private function validateKeresztnev()
+    private function validateFirstname()
     {
-        $val = trim($this->data['keresztnev']);
+        $val = trim($this->data['firstname']);
 
         if(empty($val)){
-        $this->addError('keresztnev', 'Kérem, adja meg a keresztnevét!');
+        $this->addError('firstname', 'Kérem, adja meg a keresztnevét!');
         } else {
         if(!preg_match('/^\p{L}+$/ui', $val)){
-            $this->addError('keresztnev','Keresztnév csak betűket tartalmazhat!');
+            $this->addError('firstname','Keresztnév csak betűket tartalmazhat!');
         }
         }
     }
@@ -68,30 +68,30 @@ class JelentkezesValidator {
         }
     }
 
-    private function validateTelefon()
+    private function validatePhone()
     {
 
-        $val = trim($this->data['telefon']);
+        $val = trim($this->data['phone']);
     
         if(empty($val)){
-          $this->addError('telefon', 'Kékrem, adja meg a telefonszámát!');
+          $this->addError('phone', 'Kékrem, adja meg a telefonszámát!');
         } else {
             if(!preg_match('/((?:\+?3|0)6)(?:-|\()?(\d{1,2})(?:-|\))?(\d{3})-?(\d{3,4})/', $val)){
-            $this->addError('telefon', 'Helyes formátumban adja meg a telefonszámot!');
+            $this->addError('phone', 'Helyes formátumban adja meg a telefonszámot!');
         }
         }
     }
 
-    private function validateFo()
+    private function validatePeople()
     {
 
-        $val = trim($this->data['fo']);
+        $val = trim($this->data['people']);
     
         if(empty($val)){
-          $this->addError('fo', 'Kérem, adja meg a jelentkezők létszámát!');
+          $this->addError('people', 'Kérem, adja meg a jelentkezők létszámát!');
         } else {
             if(!preg_match('/^[1-9][0-9]{0,40}$/', $val)){
-            $this->addError('fo', 'Helyes formátumban adja meg!');
+            $this->addError('people', 'Helyes formátumban adja meg!');
         }
         }
     }

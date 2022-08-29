@@ -9,7 +9,7 @@ require_once('includes/adminAut.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Túra szerkesztése</title>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="https://kit.fontawesome.com/bee62954a8.js" crossorigin="anonymous"></script>
 </head>
@@ -22,16 +22,16 @@ require_once('classes/tourEdit.classes.php');
 ?>
 
 <?php
-$tourEdit = new tourEdit();
+$tourEdit = new TourEdit();
 
 if(isset($_GET['id'])) {
     $GETid = $_GET['id'];
     $crudData = $tourEdit->selectEditData($_GET['id']);
-    $tipusok = $tourEdit->selectTipusok();
-    $szintek = $tourEdit->selectSzintek();
-    $lokacio = $tourEdit->selectLokaciok();
-    $cimke = $tourEdit->selectCimkek();
-    $cimkeID = $tourEdit->selectCimkeID($_GET['id']);
+    $tipusok = $tourEdit->selectTypes();
+    $szintek = $tourEdit->selectLevels();
+    $lokacio = $tourEdit->selectLocations();
+    $cimke = $tourEdit->selectLabels();
+    $cimkeID = $tourEdit->selectLabelID($_GET['id']);
 }
 ?>
 

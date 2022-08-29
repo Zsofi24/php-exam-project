@@ -61,7 +61,7 @@ class SignupContr extends Signup
 
     private function invalidUid()
     {
-        if(!preg_match(("/^[a-zA-Z0-9]*$/"), $this->uid)) {
+        if(!preg_match(("/^[\p{L}0-9]+$/ui"), $this->uid)) {
             $result = false;
         } else {
             $result = true;

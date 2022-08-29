@@ -40,7 +40,7 @@ class Crud extends DB
         return $cutted_string;
     }
 
-    public function selectTipusok()
+    public function selectTypes()
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_tipusok.tura_tipus FROM tura_tipusok";
@@ -49,15 +49,15 @@ class Crud extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($tipus);
+            $stmt->bind_result($type);
             while ($stmt->fetch()) {
-                $result[] = $tipus;
+                $result[] = $type;
             }
             return $result;
         }
     }
 
-    public function selectSzintek()
+    public function selectLevels()
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_szintek FROM tura_szintek";
@@ -66,15 +66,15 @@ class Crud extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($szint);
+            $stmt->bind_result($level);
             while ($stmt->fetch()) {
-                $result[] = $szint;
+                $result[] = $level;
             }
             return $result;
         }
     }
 
-    public function selectLokaciok()
+    public function selectLocations()
     {
         $conn = $this->getConnect();
         $sql = "SELECT lokacio FROM tura_helyszinek";
@@ -83,15 +83,15 @@ class Crud extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($lokacio);
+            $stmt->bind_result($location);
             while ($stmt->fetch()) {
-                $result[] = $lokacio;
+                $result[] = $location;
             }
             return $result;
         }
     }
 
-    public function selectCimkek()
+    public function selectLabels()
     {
         $conn = $this->getConnect();
         $sql = "SELECT id, cimke_nev FROM tura_cimkek";
@@ -100,15 +100,15 @@ class Crud extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($id, $cimke);
+            $stmt->bind_result($id, $label);
             while ($stmt->fetch()) {
-                $result[] = ['id'=> $id, 'cimke' => $cimke];
+                $result[] = ['id'=> $id, 'cimke' => $label];
             }
             return $result;
         }
     }
 
-    public function selectCimkeID($id) 
+    public function selectLabelID($id) 
     {
         $conn = $this->getConnect();
         $sql = "SELECT tura_cimkek.cimke_nev
@@ -121,9 +121,9 @@ class Crud extends DB
         if ($stmt->error !== "") {
             return $stmt->error;
         } else {
-            $stmt->bind_result($cimkek);
+            $stmt->bind_result($label);
             while ($stmt->fetch()) {
-                $result[]= $cimkek;
+                $result[]= $label;
             }
             return $result;
         }
@@ -147,7 +147,6 @@ class Crud extends DB
         
     }
    
-    //átírni, ne itt legyen a html
     public function pager($page, $datacount, $countperpage=10){
         $pagecount = ceil($datacount/$countperpage);
         

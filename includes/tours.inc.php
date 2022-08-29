@@ -1,9 +1,9 @@
 <?php
 
-require_once ('sql/DB.php');
-require_once ('classes/tours.classes.php');
+require_once('sql/DB.php');
+require_once('classes/tours.classes.php');
 
-$tura = new Tura();
+$tura = new Tour();
 if($tura->getConnect()) {
 
     $locations = $tura->selectLocations();

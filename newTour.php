@@ -9,15 +9,15 @@ require_once('includes/adminAut.inc.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Új túra hozzáadása</title>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="https://kit.fontawesome.com/bee62954a8.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <?php
-include_once 'templates/nav.php';
-require_once 'includes/newTour.inc.php';
+require_once('templates/nav.php');
+require_once('includes/newTour.inc.php');
 ?>
 
 <div class="back-button">
